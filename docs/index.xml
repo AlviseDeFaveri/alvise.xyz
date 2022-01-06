@@ -6,10 +6,21 @@
     <description>Recent content on alvise.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Nov 2016 21:05:33 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jan 2022 19:21:40 +0000</lastBuildDate>
     
 	<atom:link href="https://www.alvise.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>https://www.alvise.xyz/about/</link>
+      <pubDate>Thu, 06 Jan 2022 19:21:40 +0000</pubDate>
+      
+      <guid>https://www.alvise.xyz/about/</guid>
+      <description>Hi there! My name is Alvise, and I&amp;rsquo;m a Software Engineer from Italy 🇮🇹.
+About me I&amp;rsquo;m an enthusiastic and curious person, and I have a passion for the nitty gritty details of how computing machinery works.
+I started coding in high school, while I was enrolled in a humanistic course of study (philosophy, latin, ancient greek and that kind of stuff), and since then I&amp;rsquo;ve explored different areas of computer science.</description>
+    </item>
     
     <item>
       <title>Demo1</title>
@@ -40,24 +51,11 @@
     
     <item>
       <title></title>
-      <link>https://www.alvise.xyz/about/</link>
-      <pubDate>Sat, 05 Nov 2016 21:05:33 +0530</pubDate>
-      
-      <guid>https://www.alvise.xyz/about/</guid>
-      <description>Hi there! I&amp;rsquo;m Alvise, a Software Engineer from Italy 🇮🇹.
-About me I like computers, program analysis, rockets, audiovisual arts, and I have a passion for understanding how computing machinery works.
-I have experience mainly in low-level software topics, such as:
- 🚀 embedded development (space industry) 🐉 compilers 🔬 binary analysis 🚗 automotive security  But I also know something about:
- 🤖 Machine learning 🕸️ Web development 🦄 Startups  Other things that I have interest in are:</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://www.alvise.xyz/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.alvise.xyz/projects/</guid>
-      <description>There&amp;rsquo;s gonna be some stuff here soon, I swear.</description>
+      <description>// TODO</description>
     </item>
     
   </channel>
