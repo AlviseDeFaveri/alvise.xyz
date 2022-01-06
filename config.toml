@@ -1,7 +1,8 @@
-baseurl = "http://www.alvise.xyz/"
+baseurl = "https://www.alvise.xyz/"
 title = "alvise.xyz"
 theme = "hugo-theme-console"
 languageCode = "en-us"
+publishDir = "./docs/"
 
 [markup.goldmark.renderer]
 unsafe = true
