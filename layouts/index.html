@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+
+<br/>
+<p>
+Hi! I'm Alvise. You can find out more about me  <a href="about/">here</a> if you whish.
+<br/>
+This is where I like to write about software, hardware, and anything in between.
+</p>
+
+<h1>Latest Posts</h1>
+
+<div class="posts-list">
+{{ with .Site.GetPage "/posts" }}
+    {{ range first 3 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
+    <div class="post">
+        <p>
+            <div class="date">{{ .PublishDate.Format "2006-01-25" }}</div>
+            <h2><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h2>
+            <!-- {{ .Summary }} -->
+        </p>
+    </div>
+    {{ end }}
+{{ end }}
+</div>
+
+<h1>Projects</h1>
+
+<div class="date">// TODO</div>
+
+{{ end }}
