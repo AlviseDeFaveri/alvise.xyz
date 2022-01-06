@@ -1,8 +1,8 @@
-@font-face {
+/* @font-face {
     font-family: 'JetBrains Mono';
     src: url('../font/JetBrainsMono-Regular.ttf') format('truetype');
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100;
     text-rendering: optimizeLegibility;
 }
 
@@ -10,7 +10,7 @@
     font-family: 'JetBrains Mono';
     src: url('../font/JetBrainsMono-Italic.ttf') format('truetype');
     font-style: italic;
-    font-weight: 400;
+    font-weight: 100;
     text-rendering: optimizeLegibility;
 }
 
@@ -28,12 +28,44 @@
     font-style: italic;
     font-weight: 700;
     text-rendering: optimizeLegibility;
+} */
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../font/RobotoMono-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../font/RobotoMono-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../font/RobotoMono-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('../font/RobotoMono-BoldItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
 }
 
 :root {
     --global-font-size: 15px;
-    --mono-font-stack: JetBrains Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-    --font-stack: JetBrains Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    --mono-font-stack: Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    --font-stack: Roboto Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
     --global-line-height: 1.6em;
     --page-width: 50em;
     --display-h1-decoration: 1;
