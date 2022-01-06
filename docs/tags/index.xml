@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on alvise.xyz</title>
-    <link>https://blog.alvise.xyz/tags/</link>
+    <link>http://www.alvise.xyz/tags/</link>
     <description>Recent content in Tags on alvise.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 May 2020 09:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alvise.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.alvise.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Algorithms</title>
-      <link>https://blog.alvise.xyz/tags/algorithms/</link>
+      <link>http://www.alvise.xyz/tags/algorithms/</link>
       <pubDate>Fri, 01 May 2020 09:00:00 +0000</pubDate>
       
-      <guid>https://blog.alvise.xyz/tags/algorithms/</guid>
+      <guid>http://www.alvise.xyz/tags/algorithms/</guid>
       <description></description>
     </item>
     

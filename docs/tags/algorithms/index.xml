@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithms on alvise.xyz</title>
-    <link>https://blog.alvise.xyz/tags/algorithms/</link>
+    <link>http://www.alvise.xyz/tags/algorithms/</link>
     <description>Recent content in Algorithms on alvise.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 May 2020 09:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alvise.xyz/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.alvise.xyz/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Demo1</title>
-      <link>https://blog.alvise.xyz/posts/demo1/</link>
+      <link>http://www.alvise.xyz/posts/demo1/</link>
       <pubDate>Fri, 01 May 2020 09:00:00 +0000</pubDate>
       
-      <guid>https://blog.alvise.xyz/posts/demo1/</guid>
+      <guid>http://www.alvise.xyz/posts/demo1/</guid>
       <description>Undirected Graphs Some problems  Path Shortest path Cycle Ehler tour: A cycle that uses each edge excatly once. Hamilton tour: A cycle that uses each vertex exactly once  classical NP-complete problem.   Connectivity MST: Biconnectivity: A vertex whose removal disconnects the graph Planarity Graph isomorphism: Are two graphs identical?  No one knows so far. A lonstanding open problem    Representations Real-world graphs tend to be sparse (huge number of vertices, small average vertex degree).</description>
     </item>
     

@@ -1,4 +1,4 @@
-baseurl = "https://blog.alvise.xyz/"
+baseurl = "http://www.alvise.xyz/"
 title = "alvise.xyz"
 theme = "hugo-theme-console"
 languageCode = "en-us"

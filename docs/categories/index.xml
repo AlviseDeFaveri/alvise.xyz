@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on alvise.xyz</title>
-    <link>https://blog.alvise.xyz/categories/</link>
+    <link>http://www.alvise.xyz/categories/</link>
     <description>Recent content in Categories on alvise.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://blog.alvise.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.alvise.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
