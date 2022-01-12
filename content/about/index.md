@@ -4,31 +4,33 @@ date: '2022-01-06T19:21:40.000Z'
 title: ''
 description: ''
 preview: /img/beemo2.png
-lastmod: '2022-01-06T23:24:10.076Z'
+lastmod: '2022-01-11T00:43:32.806Z'
 ---
 
 
-<img src="/img/beemo2.png" style="width:40%; min-width:125px; max-width:200px; display: block; margin:auto; border-radius:0px; padding-bottom:20px;" />
+<img src="/img/beemo2.png" style="width:40%; min-width:125px; max-width:200px; display: block; margin:auto; border-radius:0px; padding-bottom:30px;" />
 
 Hi there! My name is Alvise, and I'm a Software Engineer from Italy 🇮🇹.
 
+This blog is where I document my learning process through the magical world of computers. If you like software, hardware, or anything that stands in the middle, you're in the right place.
+
+
 # About me
 
-I'm an enthusiastic and curious person, and I have a passion for the nitty gritty details of how computing machinery works.
+I enjoy exploring how computing machinery works, and
+I'm especially fascinated by the interaction between software and hardware in its
+different aspects (architectures, compilers, security).
 
-I started coding in high school, while I was enrolled in a humanistic course of study (philosophy, latin, ancient greek and that kind of stuff), and since then I've explored different areas of computer science.
+<!-- My background in Computer Science is quite varied: I obtained my high school
+diploma in classical studies, during which also learned how to write web
+applications, and then started my Bachelor's in Electronics Engineering. I later
+switched to Computer Engineering, where I focused on Embedded Development.
+During my Master's, I did an exchange program focused on Artificial Intelligence
+and Data Science, briefly worked in an early-stage startup as a backend
+developer with sysadmin tasks, and became passionate about Computer Security,
+which is now my day job. -->
 
-<!-- I started with web development during high school, then I chose Electronics for
-my Bachelor's, switched to Computer Engineering for my Master's and joined
-the [Skyward](https://skywarder.eu) student team, that was building a sounding rocket. I later
-became Software Team Lead of the group and participated to 2 launch campaigns.
-After that, I got into computer security, in particular I completed my Master's
-degree with a thesis on novel attack techniques in the field automotive security
-and I started working in the field of binary analysis. -->
-
-You can check my [Resume](http://cv.alvise.xyz) if you'd like more details.
-
-## Experiences
+<!-- ## Experience -->
 
 My main fields of expertise are:
 * 🚀 *embedded development*, especially in the aerospace field: I wrote a big portion
@@ -41,23 +43,22 @@ my [Master Thesis](https://www.politesi.polimi.it/bitstream/10589/180235/1/2021_
 
 I also have a good knowledge of:
 * 🤖 *Machine learning*, mainly Keras and Tensorflow
-* 🕸️ *Web development*, in particular the Django framework and vanilla JS
-* 🦄 *Startups*, since I [work in one](https://rev.ng), I've [contributed to one](https://blinklastmile.com) before, and
-I was also co-founder of [one] in my last year of high school (**spoiler:** it doesn't exist anymore)
+* 🕸️ *Web development*, in particular AWS and backend development
+* 🦄 *Startups*, since I [work in one](https://rev.ng) and I'm closely connected to [another one](https://blinklastmile.com), to which I contributed during the
+early stages
 
-## Interests
+You can check my [Resume](http://cv.alvise.xyz) for more details.
 
-There are many fascinating topics in Computer Science that I like to read
-about, even if I don't have any hands-on experience about them (*yet?*):
+<!-- ## Interests -->
+
+Among many exciting research that is being done right now in the field
+of computer science, some of the things that I like to read about are:
 * microarchitectural attacks & defenses
-* computer architectures
 * in-memory computing
-* swarm intelligence
+* swarm robotics
+* explainability in the field of AI
 
-## Contacts
+
+<!-- ## Contacts -->
 
 Are you interested in knowing more about me? Drop an email at [root@alvise.xyz](mailto:root@alvise.xyz).
-
-# About this blog
-
-This blog is where I document my learning process through the magical world of computers. If you like software, hardware, or anything that stands in the middle, you're in the right place.

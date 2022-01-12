@@ -1,22 +1,16 @@
 {{ define "main" }}
 
-
-<br/>
-
 <h1>Hi!</h1>
 
-<p style="text-align: justify;">
-    I'm Alvise, a Software Engineer with an interest for hardware.
-</p>
-<p style="text-align: justify;">
-    I like <a href="https://skywarder.eu">rockets</a>,
-    <a href="https://www.politesi.polimi.it/bitstream/10589/180235/1/2021_10_DeFaveriTron.pdf">embedded security</a>,
-    <a href="https://rev.ng">binary analysis</a>, computer architectures,
+<p>
+    Hi there! I'm Alvise, and this is my personal blog.
+    I like computers, <a href="https://skywarder.eu">rockets</a>,
+    <a href="https://rev.ng">reverse engineering</a>,
     <a href="https://beyondcommonideas.org">projection mapping</a>,
     old school hip-hop <a href="https://open.spotify.com/playlist/22MKaB3ZF6C01ZCX8KkCgi">music</a>
     and, sometimes, humans.
 </p>
-<p style="text-align: justify;">
+<p>
     You can read more about me  <a href="about/">here</a> if you whish, or you can
     find me on <a href="https://www.github.com/AlviseDeFaveri">Github</a>,
     <a href="https://www.twitter.com/HeroesWearBitmasks">Twitter</a>,
@@ -29,13 +23,15 @@
 <div class="posts-list">
 {{ with .Site.GetPage "/posts" }}
     {{ range first 3 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
+    <a class="post-anchor" href="{{ .Permalink }}" title="{{ .Title }}">
     <div class="post">
         <p>
-            <div class="date">{{ .PublishDate.Format "2006-01-25" }}</div>
-            <h2><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h2>
+            <div class="post-link">{{ .Title }}</div>
+            <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}</div>
             <!-- {{ .Summary }} -->
         </p>
     </div>
+    </a>
     {{ end }}
 {{ end }}
 </div>
