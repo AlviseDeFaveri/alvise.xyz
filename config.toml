@@ -3,9 +3,10 @@ title = "alvise.xyz"
 theme = "hugo-theme-console"
 languageCode = "en-us"
 publishDir = "./docs/"
+enableEmoji = true
 
-[markup.goldmark.renderer]
-unsafe = true
+# [markup.goldmark.renderer]
+# unsafe = true
 
 [params]
   # Cutting off the page title to two chars for mobile (console-demo -> co)
@@ -26,3 +27,26 @@ unsafe = true
   # [[params.navlinks]]
   # name = "projects/"
   # url = "projects/"
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = true
+    respectDoNotTrack = true
+    useSessionStorage = true
+  [privacy.instagram]
+    disable = true
+    simple = true
+  [privacy.twitter]
+    disable = true
+    enableDNT = true
+    simple = true
+  [privacy.vimeo]
+    disable = true
+    enableDNT = true
+    simple = true
+  [privacy.youtube]
+    disable = true
+    privacyEnhanced = true

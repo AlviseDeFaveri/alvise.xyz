@@ -276,8 +276,14 @@ li::after {
   left: 0;
 }
 ul > li::after {
-  content: "~";
+  content: "•";
 }
+
+ul li::before{
+  content: "" !important;
+  counter-increment: none !important;
+}
+
 nav ul > li::after {
   content: "";
 }

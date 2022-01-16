@@ -4,8 +4,7 @@
 
 <p>
     Hi there! I'm Alvise, and this is my personal blog.
-    I like computers, <a href="https://skywarder.eu">rockets</a>,
-    <a href="https://rev.ng">reverse engineering</a>,
+    I like computers, embedded systems, security, compilers,
     <a href="https://beyondcommonideas.org">projection mapping</a>,
     old school hip-hop <a href="https://open.spotify.com/playlist/22MKaB3ZF6C01ZCX8KkCgi">music</a>
     and, sometimes, humans.
@@ -27,7 +26,7 @@
     <div class="post">
         <p>
             <div class="post-link">{{ .Title }}</div>
-            <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}</div>
+            <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }} • ~{{ math.Round (div (countwords .Content) 220.0) }} min.</div>
             <!-- {{ .Summary }} -->
         </p>
     </div>
