@@ -284,11 +284,11 @@ figure {
 }
 
 .post {
-    border: var(--secondary-color) solid 1px;
+    border: var(--font-color) solid 1px;
     padding: 0px 30px;
     margin: 10px 0px 30px 0px;
     border-radius: 10px;
-    box-shadow: 7px 7px 0px var(--shadow-color);
+    box-shadow: 7px 7px 0px var(--font-color);
     /* margin-bottom:10px; */
 }
 
@@ -352,7 +352,7 @@ figure {
 }
 
 .terminal-nav {
-    border: 1px solid var(--shadow-color);
+    border: 1px solid var(--font-color);
     /* border-top: 2px dotted var(--font-color); */
     /* border-bottom: 2px dotted var(--font-color); */
     /* margin: 0px 10px; */
@@ -360,7 +360,7 @@ figure {
     /* width: 115%; */
     /* margin-left: -40px; */
     border-radius: 10px;
-    box-shadow: 7px 7px 0px var(--shadow-color);
+    box-shadow: 7px 7px 0px var(--font-color);
     margin-top: var(--global-line-height);
     margin-bottom: calc(var(--global-line-height) * 2);
     /* border-bottom: 1px double var(--secondary-color); */
