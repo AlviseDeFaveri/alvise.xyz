@@ -55,6 +55,11 @@
     </div>
   </body>
 
+<!-- Script to retrieve github repo information  -->
+{{ if .Params.NeedsGithub }}
+<script type="text/javascript" src={{ "js/repo-card.js" | absURL }}></script>
+{{ end }}
+
 <!-- Script to switch light/dark theme -->
 <script type="text/javascript">
   var toggle = document.getElementById("theme-toggle");
