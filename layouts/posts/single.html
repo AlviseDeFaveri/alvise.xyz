@@ -1,9 +1,9 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<h1 class="post-title">{{ .Title }}</h1>
 
 
 <div class="postpage-date date">
-    {{ .PublishDate.Format "2 Jan. 2006" }} • ~{{ math.Round (div (countwords .Content) 220.0) }} min.
+    📆 {{ .PublishDate.Format "2 Jan. 2006" }} • ⌚ ~{{ math.Round (div (countwords .Content) 220.0) }} min.
 </div>
 {{ with .Params.linkedin }}
     // <a href="{{ . }}">Linkedin</a>
@@ -14,6 +14,10 @@
 
 <!-- <p class="postpage-summary summary">{{.Summary}}</p> -->
 
-{{ .Content }}
+<div class="post-content">
+    <hr>
+
+    {{ .Content }}
+</div>
 {{ template "_internal/disqus.html" . }}
 {{ end }}
