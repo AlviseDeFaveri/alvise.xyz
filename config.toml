@@ -4,6 +4,7 @@ theme = "hugo-theme-console"
 languageCode = "en-us"
 publishDir = "./docs/"
 enableEmoji = true
+summaryLength = 50
 
 # [markup.goldmark.renderer]
 # unsafe = true
@@ -16,9 +17,9 @@ enableEmoji = true
   # To disable animations, please remove or comment animationStyle parameter
 #   animateStyle = "animated zoomIn fast"
 
-  [[params.navlinks]]
-  name = "blog/"
-  url = "posts/"
+  # [[params.navlinks]]
+  # name = "blog/"
+  # url = "posts/"
 
   [[params.navlinks]]
   name = "about/"

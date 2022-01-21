@@ -4,39 +4,43 @@
 
 <p>
     Hi there! I'm Alvise, and this is my personal blog.
-    I like computers, embedded systems, security, compilers,
+    I like computers, software, hardware,
     <a href="https://beyondcommonideas.org">projection mapping</a>,
     old school hip-hop <a href="https://open.spotify.com/playlist/22MKaB3ZF6C01ZCX8KkCgi">music</a>
-    and, sometimes, humans.
+    and, sometimes, humans. <a href="about/">[...]</a>
 </p>
-<p>
-    You can read more about me  <a href="about/">here</a> if you whish, or you can
+<!-- <p>
+    You can read more about me  <a href="about/">here</a> if you whish.
+     or you can
     find me on <a href="https://www.github.com/AlviseDeFaveri">Github</a>,
     <a href="https://www.twitter.com/HeroesWearBitmasks">Twitter</a>,
     <a href="https://www.linkedin.com/in/alvise-dft/">Linkedin</a>
     or contact me via <a href="mailto:root@alvise.xyz">email</a>.
-</p>
+</p> -->
 
-<h1>Latest Posts</h1>
+<h1>Posts</h1>
 
 <div class="posts-list">
 {{ with .Site.GetPage "/posts" }}
-    {{ range first 3 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
-    <a class="post-anchor" href="{{ .Permalink }}" title="{{ .Title }}">
+    {{ range sort .Data.Pages "Date" "desc" }}
+    {{ if not .Params.private }}
     <div class="post">
-        <p>
-            <div class="post-link">{{ .Title }}</div>
-            <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }} • ~{{ math.Round (div (countwords .Content) 220.0) }} min.</div>
-            <!-- {{ .Summary }} -->
-        </p>
+            <div class="date">{{ .PublishDate.Format "02-01-2006" }}</div>
+            <a class="post-anchor" href="{{ .Permalink }}" title="{{ .Title }}"> {{ .Title }}</a>
+            <!-- <div class="post-link">{{ .Title }}</div> -->
+            <div class="summary">{{ .Summary }}
+            {{ if .Truncated }}
+              <a href="{{ .Permalink }}">Read More…</a>
+            {{ end }}
+        </div>
     </div>
-    </a>
+    {{ end }}
     {{ end }}
 {{ end }}
 </div>
 
-<h1>Projects</h1>
+<!-- <h1>Projects</h1>
 
-<div class="date">// TODO</div>
+<div class="date">// TODO</div> -->
 
 {{ end }}
