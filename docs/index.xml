@@ -12,6 +12,34 @@
     
     
     <item>
+      <title>Inspirations for a Minimal Dev Blog</title>
+      <link>https://www.alvise.xyz/posts/minimal-blogging/</link>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.alvise.xyz/posts/minimal-blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Speeding up a naive parallel Montecarlo implementation using `rand_r`</title>
+      <link>https://www.alvise.xyz/posts/rand-r-montecarlo/</link>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.alvise.xyz/posts/rand-r-montecarlo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Writing code for a small sounding rocket: an overview of Skyward&#39;s on-board software</title>
+      <link>https://www.alvise.xyz/posts/writing-software-for-a-rocket/</link>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.alvise.xyz/posts/writing-software-for-a-rocket/</guid>
+      <description>So, this year is going to be 5 years since I first joined Skyward Experimental Rocketry, a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride!
+I&amp;rsquo;ve learned a lot from this team, both from a technical and a human perspective, and I&amp;rsquo;d like to give something back.</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://www.alvise.xyz/about/</link>
       <pubDate>Thu, 06 Jan 2022 19:21:40 +0000</pubDate>
@@ -20,33 +48,6 @@
       <description>Hi there! My name is Alvise, and I&amp;rsquo;m a Software Engineer from Italy 🇮🇹.
 This blog is where I document my learning process through the magical world of computers. If you like software, hardware, or anything that stands in the middle, you&amp;rsquo;re in the right place.
 About me I enjoy exploring how computing machinery works, and I&amp;rsquo;m especially fascinated by the interaction between software and hardware in its different aspects (architectures, compilers, security).</description>
-    </item>
-    
-    <item>
-      <title>Demo1</title>
-      <link>https://www.alvise.xyz/posts/demo1/</link>
-      <pubDate>Fri, 01 May 2020 09:00:00 +0000</pubDate>
-      
-      <guid>https://www.alvise.xyz/posts/demo1/</guid>
-      <description>Undirected Graphs Some problems  Path Shortest path Cycle Ehler tour: A cycle that uses each edge excatly once. Hamilton tour: A cycle that uses each vertex exactly once  classical NP-complete problem.   Connectivity MST: Biconnectivity: A vertex whose removal disconnects the graph Planarity Graph isomorphism: Are two graphs identical?  No one knows so far. A lonstanding open problem    Representations Real-world graphs tend to be sparse (huge number of vertices, small average vertex degree).</description>
-    </item>
-    
-    <item>
-      <title>Demo2</title>
-      <link>https://www.alvise.xyz/posts/demo2/</link>
-      <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.alvise.xyz/posts/demo2/</guid>
-      <description>&lt;p&gt;Hugo is an open-source project and lives by the work of its contributors. There are plenty of open issues, and we need your help to make Hugo even more awesome. You don&amp;rsquo;t need to be a Go guru to contribute to the project&amp;rsquo;s development.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Demo3</title>
-      <link>https://www.alvise.xyz/posts/demo3/</link>
-      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.alvise.xyz/posts/demo3/</guid>
-      <description>&lt;p&gt;Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again.&lt;/p&gt;</description>
     </item>
     
     <item>

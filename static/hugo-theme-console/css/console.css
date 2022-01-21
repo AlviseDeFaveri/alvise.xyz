@@ -232,7 +232,7 @@ p {
 
 .posts-list {
   position: relative;
-  padding-left: 6em;
+  padding-left: 7em;
   top: 0;
 }
 
@@ -266,6 +266,11 @@ p {
   /* font-size: small; */
   line-height: 1.4em;
   padding: calc(var(--global-line-height) * 0.5) 0px 10px 0px;
+}
+
+.post-anchor {
+  font-size: 1.1em;
+  text-decoration: underline;
 }
 
 .post-anchor:hover{
@@ -393,9 +398,10 @@ figure > a:hover {
       display: inline-block;
       position: absolute;
       left: 0px;
-      width: 150px;
+      width: 7em;
       z-index: 400;
-      font-weight: bold;
+      font-weight: normal;
+      font-size: small;
       /* padding-top: 0; */
       /* display: none; */
   }

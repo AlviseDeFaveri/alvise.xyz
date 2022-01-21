@@ -1,6 +1,6 @@
 ---
-Title: "Writing code for a small sounding rocket: an overview of Skyward's OBSW"
-date: "2022-01-19"
+Title: "Writing code for a small sounding rocket: an overview of Skyward's on-board software"
+date: 2022-01-21
 NeedsGithub: true
 math: false
 highlight: false

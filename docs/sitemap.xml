@@ -3,6 +3,24 @@
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
     
         
+    
+        
+        <url>
+            <loc>https://www.alvise.xyz/posts/</loc>
+            <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
+    
+        
+        <url>
+            <loc>https://www.alvise.xyz/posts/writing-software-for-a-rocket/</loc>
+            <lastmod>2022-01-21T00:00:00+00:00</lastmod>
+        </url>
+        
+    
+        
         <url>
             <loc>https://www.alvise.xyz/about/</loc>
             <lastmod>2022-01-11T00:43:32+00:00</lastmod>
@@ -18,48 +36,6 @@
     
         
         <url>
-            <loc>https://www.alvise.xyz/tags/algorithms/</loc>
-            <lastmod>2020-05-01T09:00:00+00:00</lastmod>
-        </url>
-        
-    
-        
-        <url>
-            <loc>https://www.alvise.xyz/posts/demo1/</loc>
-            <lastmod>2020-05-01T09:00:00+00:00</lastmod>
-        </url>
-        
-    
-        
-        <url>
-            <loc>https://www.alvise.xyz/posts/</loc>
-            <lastmod>2020-05-01T09:00:00+00:00</lastmod>
-        </url>
-        
-    
-        
-        <url>
-            <loc>https://www.alvise.xyz/tags/</loc>
-            <lastmod>2020-05-01T09:00:00+00:00</lastmod>
-        </url>
-        
-    
-        
-        <url>
-            <loc>https://www.alvise.xyz/posts/demo2/</loc>
-            <lastmod>2019-08-03T00:00:00+00:00</lastmod>
-        </url>
-        
-    
-        
-        <url>
-            <loc>https://www.alvise.xyz/posts/demo3/</loc>
-            <lastmod>2019-07-01T00:00:00+00:00</lastmod>
-        </url>
-        
-    
-        
-        <url>
             <loc>https://www.alvise.xyz/projects/</loc>
             <priority>0</priority>
         </url>
@@ -68,6 +44,12 @@
         
         <url>
             <loc>https://www.alvise.xyz/categories/</loc>
+        </url>
+        
+    
+        
+        <url>
+            <loc>https://www.alvise.xyz/tags/</loc>
         </url>
         
     

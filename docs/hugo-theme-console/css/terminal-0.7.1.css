@@ -99,8 +99,7 @@ ul {
   margin-top: calc(var(--global-space) * 2);
   margin-bottom: calc(var(--global-space) * 2);
 }
-.logo,
-h1 {
+.logo {
   position: relative;
   display: inline-block;
   display: table-cell;

@@ -29,10 +29,10 @@
             <a class="post-anchor" href="{{ .Permalink }}" title="{{ .Title }}"> {{ .Title }}</a>
             <!-- <div class="post-link">{{ .Title }}</div> -->
             <div class="summary">{{ .Summary }}
+            </div>
             {{ if .Truncated }}
               <a href="{{ .Permalink }}">Read More…</a>
             {{ end }}
-        </div>
     </div>
     {{ end }}
     {{ end }}
