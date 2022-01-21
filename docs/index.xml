@@ -30,11 +30,11 @@
     </item>
     
     <item>
-      <title>Writing code for a small sounding rocket: an overview of Skyward&#39;s on-board software</title>
-      <link>https://www.alvise.xyz/posts/writing-software-for-a-rocket/</link>
+      <title>Writing Code for a Sounding Rocket: a Look Under the Hood of Skyward&#39;s OBSW</title>
+      <link>https://www.alvise.xyz/posts/writing-software-for-a-sounding-rocket/</link>
       <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://www.alvise.xyz/posts/writing-software-for-a-rocket/</guid>
+      <guid>https://www.alvise.xyz/posts/writing-software-for-a-sounding-rocket/</guid>
       <description>So, this year is going to be 5 years since I first joined Skyward Experimental Rocketry, a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride!
 I&amp;rsquo;ve learned a lot from this team, both from a technical and a human perspective, and I&amp;rsquo;d like to give something back.</description>
     </item>
@@ -46,8 +46,8 @@ I&amp;rsquo;ve learned a lot from this team, both from a technical and a human p
       
       <guid>https://www.alvise.xyz/about/</guid>
       <description>Hi there! My name is Alvise, and I&amp;rsquo;m a Software Engineer from Italy 🇮🇹.
-This blog is where I document my learning process through the magical world of computers. If you like software, hardware, or anything that stands in the middle, you&amp;rsquo;re in the right place.
-About me I enjoy exploring how computing machinery works, and I&amp;rsquo;m especially fascinated by the interaction between software and hardware in its different aspects (architectures, compilers, security).</description>
+This blog is where I document my learning process through the magical world of computers.
+About me I enjoy exploring how computing machinery works, and I&amp;rsquo;m especially fascinated by the interaction between software and hardware.</description>
     </item>
     
     <item>

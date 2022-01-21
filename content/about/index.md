@@ -11,16 +11,16 @@ lastmod: '2022-01-11T00:43:32.806Z'
 
 Hi there! My name is **Alvise**, and I'm a Software Engineer from Italy 🇮🇹.
 
-This blog is where I document my learning process through the magical world of computers. If you like software, hardware, or anything that stands in the middle, you're in the right place.
+This blog is where I document my learning process through the magical world of computers.
 
 
 # About me
 
 I enjoy exploring how computing machinery works, and
-I'm especially fascinated by the interaction between software and hardware in its
-different aspects (architectures, compilers, security).
+I'm especially fascinated by the interaction between software and hardware.
 
-<!-- ## Experience -->
+## Experience
+
 
 My main fields of expertise are:
 * 🚀 **embedded development**, especially in the aerospace field: I wrote a big portion
@@ -31,6 +31,7 @@ of [Skyward](https://skywarder.eu) rockets' [on-board software](https://github.c
 * 🚗 **embedded security**, and in particular CAN bus security, on which I wrote
 my [Master Thesis](https://www.politesi.polimi.it/bitstream/10589/180235/1/2021_10_DeFaveriTron.pdf)
 
+
 I also have a good knowledge of:
 * 🤖 **Machine learning**, mainly Keras and Tensorflow
 * 🕸️ **Web development**, in particular AWS and backend development
@@ -38,17 +39,14 @@ I also have a good knowledge of:
 early stages
 
 You can check my [Resume](http://cv.alvise.xyz) for more details.
+## Interests
 
-<!-- ## Interests -->
-
-Among many exciting research that is being done right now in the field
-of computer science, some of the things that I like to read about are:
+Other things that I 'm interested in are:
+* audiovisual arts and interactive installations
+* emerging computer architectures
 * microarchitectural attacks & defenses
-* in-memory computing
-* swarm robotics
 * explainability in the field of AI
 
+## Contacts
 
-<!-- ## Contacts -->
-
-Are you interested in knowing more about me? Drop an email at [root@alvise.xyz](mailto:root@alvise.xyz).
+Are you interested in knowing more about me? Drop an email at [root@alvise.xyz](mailto:root@alvise.xyz). You can also find me on [Github](https://github.com/AlviseDeFaveri), [Linkedin](https://linkedin.com/alvise-dft) and [Twitter](https://twitter.com/HBitmasks).

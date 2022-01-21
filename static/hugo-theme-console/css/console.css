@@ -37,7 +37,7 @@
     monospace, serif;
   --font-stack: JetBrains Mono, Menlo, Monaco, Lucida Console, Liberation Mono,
     DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-  --global-line-height: 1.6em;
+  --global-line-height: 1.45em;
   --page-width: 55em;
   --display-h1-decoration: 1;
   --global-font-color: #323247;
@@ -124,10 +124,14 @@ h2,
   font-size: 1.1em;
 }
 
+ul, ol {
+  margin-top: calc(var(--global-line-height)*0.5) !important;
+  margin-bottom:calc( var(--global-line-height)*0.5) !important;
+}
+
 li {
   margin: 7px;
 }
-
 
 .active a {
   text-decoration: underline;
@@ -256,8 +260,6 @@ p {
   padding-top: 0;
   /* color:var(--secondary-color); */
   font-size: small;
-
-
 }
 
 .summary {
@@ -338,6 +340,8 @@ figure > a:hover {
   max-width: 40em;
   display: block;
   margin: 3em auto 4em auto;
+  background-color: white;
+  color: black;
 }
 
 .repo-card:hover {
@@ -345,7 +349,8 @@ figure > a:hover {
 }
 
 .repo-card a {
-  color: var(--primary-color);
+  background-color: white;
+  color: black;
 }
 
 .repo-card a:hover {
@@ -362,7 +367,7 @@ figure > a:hover {
     display: inline-block;
   } */
 
-  .terminal-nav {
+  /* .terminal-nav {
     align-items: flex-start;
     flex-direction: column;
     display: flex;
@@ -378,7 +383,7 @@ figure > a:hover {
 
   .terminal-menu li {
     margin-right: 20px;
-  }
+  } */
 
   .logo {
     padding: calc(var(--global-space) * 1) 0 calc(var(--global-space) * 1);
