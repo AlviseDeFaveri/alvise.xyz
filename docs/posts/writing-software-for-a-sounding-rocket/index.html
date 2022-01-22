@@ -99,7 +99,7 @@ I&rsquo;ve learned a lot from this team, both from a technical and a human persp
 <li>a <strong>target altitude</strong>, which can be 3km or 10km</li>
 <li>an <strong>engine type</strong>, either solid, liquid or hybrid</li>
 </ul>
-<p>In our case, we were participating in the 3km COTS (commerical off-the-shelf) solid motor category, and the results were actually very good: 1st place in our category, 2nd place overall, and we were given the Best Team award too. Kudos to all the team for the great job!</p>
+<p>In our case, we were participating in the 3km COTS (commercial off-the-shelf) solid motor category, and the results were actually very good: 1st place in our category, 2nd place overall, and we were given the Best Team award too. Kudos to all the team for the great job!</p>
 <p>But let&rsquo;s see what these two characteristics (altitude and engine) actually mean. A small disclaimer first: I’m a &ldquo;software guy&rdquo;, so I&rsquo;ll mostly concentrate on the software-related consequences, omitting other equally important aspects of designing a rocket, such as the aerodynamics, simulation, structure assembly, logistics and many more.</p>
 <h2 id="target-altitude">Target altitude</h2>
 <p>Let&rsquo;s start from the <em>target altitude</em>: the idea is that the nearer your <strong>apogee</strong> (the highest point of the rocket flight) is to the target altitude, the more points you gain. For example, if two teams are competing in the 3km category, and one reaches 2900m of maximum altitude while the other one reaches 3500m, the former will get more points, regardless of which one flew the highest.</p>
@@ -122,7 +122,7 @@ I&rsquo;ve learned a lot from this team, both from a technical and a human persp
 <p>So, how do you even control this thing? Well, in short, you can&rsquo;t control the motor directly, but you can at least <strong>slow down the rocket</strong> if you use some external components. In our case, we designed a set of retractible <strong>aerobrakes</strong> that were controlled by the electronic system through servo motors.</p>
 <!-- raw HTML omitted -->
 <h1 id="the-role-of-the-on-board-software">The role of the on-board software</h1>
-<p>Skyward develops and maintains all kinds of software: some is used for simulating the trajectory of the flight, other is used by Mission Control in the <strong>Ground Station</strong> during launch-day, and another part, the so-called <strong>on-boad software</strong>, is a bunch of C++ code that gets actually executed <em>inside</em> the rocket.</p>
+<p>Skyward develops and maintains all kinds of software: some is used for simulating the trajectory of the flight, other is used by Mission Control in the <strong>Ground Station</strong> during launch-day, and another part, the so-called <strong>on-board software</strong>, is a bunch of C++ code that gets actually executed <em>inside</em> the rocket.</p>
 <p>But where <em>exactly</em> inside the rocket?</p>
 <figure>
     <img src="img/deathstack2.jpg"

@@ -37,7 +37,7 @@ The rules of this challenge are quite complex, <!--since you have to provide a s
 - a **target altitude**, which can be 3km or 10km
 - an **engine type**, either solid, liquid or hybrid
 
-In our case, we were participating in the 3km COTS (commerical off-the-shelf) solid motor category, and the results were actually very good: 1st place in our category, 2nd place overall, and we were given the Best Team award too. Kudos to all the team for the great job!
+In our case, we were participating in the 3km COTS (commercial off-the-shelf) solid motor category, and the results were actually very good: 1st place in our category, 2nd place overall, and we were given the Best Team award too. Kudos to all the team for the great job!
 
 But let's see what these two characteristics (altitude and engine) actually mean. A small disclaimer first: I’m a "software guy", so I'll mostly concentrate on the software-related consequences, omitting other equally important aspects of designing a rocket, such as the aerodynamics, simulation, structure assembly, logistics and many more.
 
@@ -71,7 +71,7 @@ So, how do you even control this thing? Well, in short, you can't control the mo
 
 # The role of the on-board software
 
-Skyward develops and maintains all kinds of software: some is used for simulating the trajectory of the flight, other is used by Mission Control in the **Ground Station** during launch-day, and another part, the so-called **on-boad software**, is a bunch of C++ code that gets actually executed _inside_ the rocket.
+Skyward develops and maintains all kinds of software: some is used for simulating the trajectory of the flight, other is used by Mission Control in the **Ground Station** during launch-day, and another part, the so-called **on-board software**, is a bunch of C++ code that gets actually executed _inside_ the rocket.
 
 But where _exactly_ inside the rocket?
 
