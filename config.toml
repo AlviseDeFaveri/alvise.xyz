@@ -5,6 +5,7 @@ languageCode = "en-us"
 publishDir = "./docs/"
 enableEmoji = true
 summaryLength = 50
+# assetDir = "static/"
 
 # [markup.goldmark.renderer]
 # unsafe = true
@@ -15,7 +16,7 @@ summaryLength = 50
 
   # Set the animation style -- https://animate.style/
   # To disable animations, please remove or comment animationStyle parameter
-#   animateStyle = "animated zoomIn fast"
+  animateStyle = " animated fadeInUp faster"
 
   # [[params.navlinks]]
   # name = "blog/"

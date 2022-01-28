@@ -1,3 +1,4 @@
 frontmatter.json
 .frontmatter
 .vscode
+node_modules/*
