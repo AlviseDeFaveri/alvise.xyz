@@ -97,6 +97,7 @@ body {
   background-color: var(--code-bg-color);
   margin-bottom: 75px;
   margin-top: var(--global-top-margin);
+  min-width:330px;
 }
 
 h1,
@@ -267,6 +268,7 @@ p {
   right: 0;
   top: 0;
   padding-bottom: 5px;
+  min-width:330px;
 }
 
 .header-spacer {
