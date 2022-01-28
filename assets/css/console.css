@@ -1,6 +1,6 @@
  @font-face {
   font-family: "JetBrains Mono";
-  src: url("../font/JetBrainsMono-Regular.ttf") format("truetype");
+  src: url("/font/JetBrainsMono-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 100;
   text-rendering: optimizeLegibility;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../font/JetBrainsMono-Italic.ttf") format("truetype");
+  src: url("/font/JetBrainsMono-Italic.ttf") format("truetype");
   font-style: italic;
   font-weight: 100;
   text-rendering: optimizeLegibility;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../font/JetBrainsMono-Bold.ttf") format("truetype");
+  src: url("/font/JetBrainsMono-Bold.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
   text-rendering: optimizeLegibility;
@@ -24,21 +24,21 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../font/JetBrainsMono-BoldItalic.ttf") format("truetype");
+  src: url("/font/JetBrainsMono-BoldItalic.ttf") format("truetype");
   font-style: italic;
   font-weight: 700;
   text-rendering: optimizeLegibility;
 }
 
 :root {
-  --global-font-size: 16px;
+  --global-font-size: 17px;
   --mono-font-stack: JetBrains Mono, Menlo, Monaco, Lucida Console,
     Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
     monospace, serif;
   --font-stack: JetBrains Mono, Menlo, Monaco, Lucida Console, Liberation Mono,
     DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-  --global-line-height: 1.45em;
-  --page-width: 55em;
+  --global-line-height: 1.5em;
+  --page-width: 85ch;
   --display-h1-decoration: 1;
   --global-font-color: #323247;
   --font-color: #323247;
@@ -60,15 +60,27 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --background-color: rgb(52, 51, 66);
-  --code-bg-color: #333333;
-  --background-color: #333333;
-  --global-font-color: #fff;
+  --code-bg-color: #202020;
+  --background-color: #202020;
+  --global-font-color: #dadada;
   --font-color: #fff;
   --secondary-color: #c0c0c0;
   --shadow-color: #c0c0c0;
   --primary-color: #f7c664;
 }
+
+html[data-anim="none"] > *{
+  transition: all 0s;
+}
+
+html[data-anim="fast"] > * {
+  transition: background 300ms ease-in-out, color 500ms ease-in-out !important;
+}
+
+html[data-anim="fast"] > * > .top-container {
+  transition: background 300ms ease-in-out, color 500ms ease-in-out !important;
+}
+
 
 @media only screen and (max-width: 750px) {
   :root {
@@ -111,6 +123,7 @@ h1,
   margin: 0;
   overflow: hidden;
   font-weight: 600;
+  padding-top: 60px;
 }
 
 h1::after {
@@ -125,12 +138,13 @@ h2,
 }
 
 ul, ol {
-  margin-top: calc(var(--global-line-height)*0.5) !important;
-  margin-bottom:calc( var(--global-line-height)*0.5) !important;
+  margin-top: calc(var(--global-line-height)*1) !important;
+  margin-bottom:calc( var(--global-line-height)*1) !important;
 }
 
 li {
-  margin: 7px;
+  margin: 10px 5px;
+  color: var(--global-font-color);
 }
 
 .active a {
@@ -159,8 +173,10 @@ p {
 /* ----- Misc --------- */
 
 .main-container {
-  max-width: calc(var(--page-width)*.90);
+  /* max-width: calc(var(--page-width)*.90); */
   min-width: 250px;
+  padding: 0px 70px;
+  height: 100%;
 }
 
 .footer {
@@ -190,6 +206,10 @@ p {
 
 #theme-toggle {
   font-size: 1.5em;
+  color: var(--font-color);
+}
+
+#theme-toggle:hover {
   color: var(--secondary-color);
 }
 
@@ -204,6 +224,13 @@ p {
 
 .terminal-menu li {
   margin-right: 30px;
+}
+.terminal-menu li a:not(.btn) {
+  color: var(--font-color);
+}
+
+.terminal-menu li a:not(.btn):hover {
+  color: var(--secondary-color);
 }
 
 .terminal-prompt::after {
@@ -220,15 +247,30 @@ p {
   border: 1px solid var(--font-color);
   /* border-top: 2px dotted var(--font-color); */
   /* border-bottom: 2px dotted var(--font-color); */
-  /* margin: 0px 10px; */
-  padding: 0px 20px;
-  /* width: 115%; */
+  /* margin: 0px 20px; */
+  padding: 0px 40px;
   /* margin-left: -40px; */
   border-radius: 10px;
   box-shadow: 7px 7px 0px var(--font-color);
-  margin-top: var(--global-line-height);
-  margin-bottom: calc(var(--global-line-height) * 1.5);
+  margin-top: 14px;
+  margin-bottom: 7px;
   /* border-bottom: 1px double var(--secondary-color); */
+}
+
+.top-container {
+  /* box-shadow: 0 0 30px var(--background-color); */
+  position: fixed;
+  z-index: 2000;
+  opacity: 1;
+  background: var(--background-color);
+  left: 0;
+  right: 0;
+  top: 0;
+  padding-bottom: 5px;
+}
+
+.header-spacer {
+  height: 110px;
 }
 
 
@@ -272,7 +314,8 @@ p {
 
 .post-anchor {
   font-size: 1.1em;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  font-weight: bolder;
 }
 
 .post-anchor:hover{
@@ -358,6 +401,21 @@ figure > a:hover {
   text-decoration: underline;
 }
 
+/* ----- Button --------- */
+.btn {
+  border: 1px solid var(--font-color);
+  margin-top: 10px;
+  box-shadow: 7px 7px var(--font-color);
+  border-radius: 100px;
+  padding: 10px 20px
+}
+
+.btn:active {
+  background-color: wheat;
+  border: 1px solid var(--font-color);
+  box-shadow: 7px 7px var(--font-color);
+}
+
 /* --------------- Mobile ----------------------- */
 
 @media only screen and (max-width: 750px) {
@@ -384,6 +442,20 @@ figure > a:hover {
   .terminal-menu li {
     margin-right: 20px;
   } */
+
+  .main-container {
+    /* max-width: calc(var(--page-width)*.90); */
+    min-width: 250px;
+    padding: 0px 35px;
+  }
+
+  h1, .terminal h1 {
+    padding-top: 10px;
+  }
+
+  .terminal-nav {
+    padding: 0px 20px;
+  }
 
   .logo {
     padding: calc(var(--global-space) * 1) 0 calc(var(--global-space) * 1);
@@ -413,12 +485,20 @@ figure > a:hover {
 
 
   .footer {
-    margin-top: 50px;
-    padding-top: 5px;
+    bottom: 5px;
+    /* padding-top: 5px; */
   }
 
   #theme-toggle {
     font-size: 1em;
     margin-top: 0px;
+  }
+
+  .btn {
+    border: 1px solid var(--font-color);
+    margin-top: 10px;
+    box-shadow: 3px 3px var(--font-color);
+    border-radius: 100px;
+    padding: 10px 20px
   }
 }
