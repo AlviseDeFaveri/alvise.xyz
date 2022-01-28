@@ -1,11 +1,10 @@
 ---
 Title: "Writing Code for a Sounding Rocket: a Look Under the Hood of Skyward's OBSW"
 date: 2022-01-21
-NeedsGithub: true
+RepoCard: true
 math: false
 highlight: false
 image: img/conops.png
-# image: img/rocket.jpg
 ---
 
 <!-- {{< figure link=https://www.skywarder.eu/blog/wp-content/uploads/2021/11/DSC_1513.jpg" src=img/rocket.jpg >}} -->

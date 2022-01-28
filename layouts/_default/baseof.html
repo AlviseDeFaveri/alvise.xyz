@@ -72,8 +72,9 @@
   </body>
 
 <!-- Script to retrieve github repo information  -->
-{{ if .Params.NeedsGithub }}
-<script type="text/javascript" src={{ "js/repo-card.js" | absURL }}></script>
+{{ if .Params.RepoCard }}
+{{- $cardscript := (resources.Get "js/repo-card.js")}}
+<script type="text/javascript" src={{ $cardscript.RelPermalink }}></script>
 {{ end }}
 
 <!-- Script to switch light/dark theme -->
