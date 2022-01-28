@@ -1,0 +1,30 @@
+{
+  "name": "alvise.xyz",
+  "version": "1.0.0",
+  "description": "Source code of my personal website.",
+  "main": "postcss.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlviseDeFaveri/alvise.xyz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlviseDeFaveri/alvise.xyz/issues"
+  },
+  "homepage": "https://github.com/AlviseDeFaveri/alvise.xyz#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss-cli": "^9.1.0"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.1.3",
+    "cssnano": "^5.0.16"
+  }
+}
