@@ -7,7 +7,7 @@ highlight: false
 image: img/conops.png
 ---
 
-<!-- {{< figure link=https://www.skywarder.eu/blog/wp-content/uploads/2021/11/DSC_1513.jpg" src=img/rocket.jpg >}} -->
+<!-- {{< figure link=https://www.skywarder.eu/blog/wp-content/uploads/2021/11/DSC_1513.jpg.webp" src=img/rocket.jpg.webp >}} -->
 
 So, this year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride!
 
@@ -58,7 +58,7 @@ By the way, our final apogee was 3076m, so not bad at all 😉.
 
 For what concerns the specific characteristics of each engine type, the EuRoc guys made a [great post](https://www.instagram.com/p/CUhoVtkNmTi) on this topic, so I won't dig too much into the details of it.
 
-{{< figure src="img/skyward-euroc21-ignition.png" caption="Preparation of the rocket before ignition. © Skyward Experimental Rocketry, 2021" width="100%" >}}
+{{< figure src="img/skyward-euroc21-ignition.png.webp" caption="Preparation of the rocket before ignition. © Skyward Experimental Rocketry, 2021" size="800x" width="800">}}
 
 <!-- In the case of our rocket, we went for the solid COTS motor this year, and we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/) for future editions. -->
 
@@ -74,7 +74,7 @@ Skyward develops and maintains all kinds of software: some is used for simulatin
 
 But where _exactly_ inside the rocket?
 
-{{< figure src="img/deathstack2.jpg" caption="Two components of the Death Stack, our on-board computer. © Skyward Experimental Rocketry, 2021" width="100%" >}}
+{{< figure src="img/deathstack2.jpg.webp" caption="Two components of the Death Stack, our on-board computer. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
 
 ## The Electronic System
 
@@ -93,7 +93,7 @@ So, what does this complex electronics have to do in the end?
 
 Well, in first approximation, what a sounding rocket does is very simple: go up very fast, reach apogee, deploy a parachute, come down (gently). Rockets like this are typically designed to carry some kind of **payload**, such as a scientific experiment or a small cubesat, but in our case we were just carrying a dummy payload, since our goal for this mission was to validate the rocket itself.
 
-{{< figure src="img/conops.png" caption="Phases of the rocket flight. © Skyward Experimental Rocketry, 2021" width="100%" >}}
+{{< figure src="img/conops.png.webp" caption="Phases of the rocket flight. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
 
 With a little less approximation, we can divide the flight into the following phases:
 
@@ -114,7 +114,7 @@ To be able to detect the current state of the rocket, and make correct predictio
 
 All the information collected during the flight, both from the sensors and from the software itself, needs to be saved on an SD card for post-flight analysis. However, the **latency** of SD card writing operations can be quite high if you don't do them in batch, so you need to accumulate a certain amount of information and write it all together. To avoid the whole software from blocking every time we do this, we employ a variation of the [triple-buffering](https://en.wikipedia.org/wiki/Multiple_buffering) technique.
 
-{{< figure src="img/skyward-sensors-analysis.jpg" caption="Post-flight analysis of the on-board sensors recordings after one of our test flights. © Skyward Experimental Rocketry, 2021" width="100%" >}}
+{{< figure src="img/skyward-sensors-analysis.jpg.webp" caption="Post-flight analysis of the on-board sensors recordings after one of our test flights. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
 
 **3. Telemetry and Telecommands**
 
@@ -128,7 +128,7 @@ One of the most sophisticated things that we do on the on-board software is real
 
 To control the system in a reliable way, we have to take into account that real sensors suffer from all kind of non-ideal behaviors: bias, noise, spikes, non-linearity etc., and these non-idealities can depend from all kind of factors, such as the speed, acceleration or internal temperature of the rocket, or even the system's electromagnetic noise. For this reason, we need to **characterize** our sensors during the testing phase, **calibrate** them before liftoff and **filter** the values we read from them in real-time based on the calibration we made.
 
-{{< figure src="img/accel-euroc.png" caption="An example of the raw data coming out from the on-board accelerometers. © Skyward Experimental Rocketry, 2021" width="100%" >}}
+{{< figure src="img/accel-euroc.png.webp" caption="An example of the raw data coming out from the on-board accelerometers. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
 
 **6. Task scheduling**
 
