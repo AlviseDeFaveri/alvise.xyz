@@ -1,54 +1,53 @@
 ---
-Title: "Writing Code for a Sounding Rocket: a Look Under the Hood of Skyward's OBSW"
+Title: "Under the hood of a rocket's on-board software"
 date: 2022-01-21
-RepoCard: true
+RepoCard: false
 math: false
 highlight: false
-image: img/conops.png
+image: img/rocket.jpg
+summary: So, this year is going to be 5 years since I first joined Skyward Experimental Rocketry, a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride! I've learned a lot from this team, both from a technical and a human perspective, and I'd like to give something back...
 ---
 
-<!-- {{< figure link=https://www.skywarder.eu/blog/wp-content/uploads/2021/11/DSC_1513.jpg.webp" src=img/rocket.jpg.webp >}} -->
+{{< figure link="https://www.skywarder.eu/blog/lynx-en/" src=img/rocket.jpg.webp caption="Test launch in Roccaraso (🇮🇹). © Skyward Experimental Rocketry, 2021">}}
 
 So, this year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride!
 
-I've learned a lot from this team, both from a technical and a human perspective, and I'd like to give something back. Since they've just [open-sourced](https://github.com/skyward-er) their on-board software (**OBSW**), to which I have been contributing for a couple of years, I figured I'd write something introductory about what this software does and how we developed it.
+I've learned a lot from this team, both from a technical and a human perspective, and I'd like to give something back. So, to celebrate the fact that they've just [open-sourced](https://github.com/skyward-er) their on-board software (**OBSW**), I figured it would be fun to write something about what this software does and how we developed it.
 
-{{< github "skyward-er/skyward-boardcore" >}}
+I won't be diving into the nitty gritty implementation details here (I might do that in a separate post in the future): what I want to provide is a high-level overview of what the software has to do and what type of problems it has to face.
 
-I won't be diving too much into the nitty gritty implementation details here (I might do that in a separate post in the future): what I want to provide is a high-level overview of what the software has to do and what type of problems it has to face.
+<!-- {{< github "skyward-er/skyward-boardcore" >}} -->
 
-If you want to get your hands dirty nevertheless, I'd recommend you start from the following repositories:
+If you want to get your hands dirty, I'd recommend you start from the following repositories:
 
 - [skyward-boardcore](https://github.com/skyward-er/skyward-boardcore), the common framework for all of our rockets, which includes drivers, shared components and some [documentation](https://github.com/skyward-er/skyward-boardcore/wiki) too
 - Lynx's [on-board software](https://github.com/skyward-er/on-board-software), which is the actual code that runs on the rocket and is built on top of boardcore
-- Our fork of the [Miosix real-time OS](https://github.com/skyward-er/miosix-kernel), which provides multi-threading capabilities, a filesystem API and much more
+- Our fork of the [Miosix real-time OS](https://github.com/skyward-er/miosix-kernel), which provides multi-threading capabilities, a filesystem and other basic utilities with minimal overhead
 
 <!-- I hope this overview can be useful for both newbies trying to grasp the big picture of this kind of software and for anyone curious to know something more about how we do things in Skyward and what kind of problems do you even need to worry about when writing software for a rocket. -->
 
 # Some context
 
-To give some context to this post, I'll be specifically talking about our latest rocket, [Lynx](https://www.skywarder.eu/blog/lynx-en/), which we built to participate to our first international competition ever: [EuRoc](https://euroc.pt), a newborn competition held in Portugal between students of technical universities from all around Europe.
+In this post I'll be talking specifically about our latest rocket, Lynx, which we built to participate to our first international competition ever: [EuRoc](https://euroc.pt), a newborn competition held in Portugal between students of technical universities from all around Europe.
+
+<!-- {{< figure src="img/team.CR2.webp" caption="Some nice moments from EuRoC 2021 🙂. © Skyward Experimental Rocketry, 2021" size="800x" width="800">}} -->
 
 <!-- and is heavily inspired by another well known competition, the [Spaceport America Cup](https://spaceportamericacup.com/), which is held in the USA. -->
 
-The rules of this challenge are quite complex, <!--since you have to provide a series of technical reports to the jury and the final score takes into account several different aspects,--> but the _TL;DR_ is that teams compete in categories, each characterised by:
+The rules of this challenge are quite complex, <!--since you have to provide a series of technical reports to the jury and the final score takes into account several different aspects,--> but the _TL;DR_ is that teams compete in categories, each characterized by:
 
 - a **target altitude**, which can be 3km or 10km
 - an **engine type**, either solid, liquid or hybrid
 
-In our case, we were participating in the 3km COTS (commercial off-the-shelf) solid motor category, and the results were actually very good: 1st place in our category, 2nd place overall, and we were given the Best Team award too. Kudos to all the team for the great job!
-
-But let's see what these two characteristics (altitude and engine) actually mean. A small disclaimer first: I’m a "software guy", so I'll mostly concentrate on the software-related consequences, omitting other equally important aspects of designing a rocket, such as the aerodynamics, simulation, structure assembly, logistics and many more.
+Lynx in particular is a relatively small rocket (2.5m x 21kg) competing in the 3km solid motor category.
 
 ## Target altitude
 
-Let's start from the _target altitude_: the idea is that the nearer your **apogee** (the highest point of the rocket flight) is to the target altitude, the more points you gain. For example, if two teams are competing in the 3km category, and one reaches 2900m of maximum altitude while the other one reaches 3500m, the former will get more points, regardless of which one flew the highest.
+Let's start from the _target altitude_: the idea is that the nearer your **apogee** (the highest point of the rocket's flight) is to the target altitude, the more points you gain. For example, if two teams are competing in the 3km category, and one reaches 2900m of maximum altitude while the other one reaches 3500m, the former will get more points, regardless of which one flew the highest.
 
-This is where the fun part starts: in order to target an _exact_ altitude, the rocket must be able to control somehow its speed in real-time, and predict the apogee moment-by-moment, to decide whether it's going too fast or not.
+Note that, in order to target an _exact_ altitude, the rocket must be able to control somehow its speed in real-time and to predict the apogee, to decide whether it's going too fast or not. Needless to say, this can be quite challenging for a group of students, especially when dealing with rockets that will reach a peak speed of over 1000km/h, but here's where the fun part starts.
 
- <!-- Needless to say, this can be quite challenging for a group of students, especially when dealing with rockets that will reach a peak speed of over 1000km/h. -->
-
-By the way, our final apogee was 3076m, so not bad at all 😉.
+(By the way, our final apogee was 3076m AGL, so not bad at all 😉.)
 
 <!--
 {{< youtube >}}
@@ -58,13 +57,13 @@ By the way, our final apogee was 3076m, so not bad at all 😉.
 
 For what concerns the specific characteristics of each engine type, the EuRoc guys made a [great post](https://www.instagram.com/p/CUhoVtkNmTi) on this topic, so I won't dig too much into the details of it.
 
+For Lynx, we went for the Aerotech M2000R (you can find all the specs on [the Lynx page](https://www.skywarder.eu/blog/lynx-en/) on the team's website) this year, although we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/) for future editions.
+
 {{< figure src="img/skyward-euroc21-ignition.png.webp" caption="Preparation of the rocket before ignition. © Skyward Experimental Rocketry, 2021" size="800x" width="800">}}
 
-<!-- In the case of our rocket, we went for the solid COTS motor this year, and we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/) for future editions. -->
+Our solid motor had the advantage that we bought it off-the-shelf, but one of the problems with solid motors is that **you cannot control thrust**: basically, once you kickstart the chemical reaction, you can't stop it. Also, the amount of total thrust provided will slightly vary between motors of the same exact type, since variations in the propellant and igniter can cause significant performance differences.
 
-Our solid motor had the advantage that we bought it off-the-shelf (although we are planning to bring our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/) in future editions), but one of the problems with solid motors is that **you cannot control thrust**: basically, once you kickstart the chemical reaction, you can't stop it. Also, the amount of total thrust provided will slightly vary between motors of the same exact type, since variations in the propellant and igniter can cause significant performance differences.
-
-So, how do you even control this thing? Well, in short, you can't control the motor directly, but you can at least **slow down the rocket** if you use some external components. In our case, we designed a set of retractible **aerobrakes** that were controlled by the electronic system through servo motors.
+So, how do you even control this thing? Well, in short, you can't control the motor directly, but you can at least **slow down the rocket** if you use some external components. In our case, we designed a set of retractible **aerobrakes** that were controlled by the electronic system through servo motors. These aerobrakes can be opened or closed at different degrees to adapt to the current speed in real-time.
 
 <!-- Another thing that has to be taken into account with solid motors is reliability: small difference in the propellant, external conditions (temperature, humidity etc.) and in the igniter can cause significant difference in the *performance* of the motor, i.e. the amount of total thrust it will provide. Hence, you have to design your control algorithms to react in real-time to the measured acceleration profile, which you don't really know until you don't start the engine. -->
 
@@ -78,14 +77,16 @@ But where _exactly_ inside the rocket?
 
 ## The Electronic System
 
-Our on-board computer, called the _Death Stack_, is arguably one of the most complex subsystems of the entire rocket. It is composed of a bunch of electronics boards (or *PCB*s) stacked one onto another to form a composable system. Some of its components are:
+Our on-board computer, called the _Death Stack_, is arguably one of the most complex subsystems of the entire rocket. It is composed of four electronics boards (or *PCB*s) stacked one onto another. Its components are:
 
-- The **Microcontroller**, which is the _brain_ of the whole system. Normally, we use STM32 F4 MCUs coupled with an external RAM unit and an external _Oscillator_ to provide a high-precision clock.
-- The **SD Card**, which might be enclosed in a _black box_ that is designed to resist any impact with the ground.
-- The **Sensors**, from which we can measure the acceleration, pressure, internal and external temperature of the rocket, as well as the current flowing in the electronic system and many other information.
-- The **Actuators** electronics, which in our case has to drive the aerobrakes, the opening of the nosecone and the deployment of the second parachute, which is done using [Cypres cutters](https://www.cypres.aero/sparepart/pulley-part/).
+- The **Analog Board** that contains most of the sensors, including four analog pressure sensors, one digital pressure sensor, the nosecone detach pin and the launchpad detach pin (detects liftoff)
+- The **RF+IMU Board** that is equipped with a GPS receiver, an RF module (Xbee 868 MHz) used to communicate with the ground station, and IMU + magnetometer to estimate the current attitude of the rocket
+- The **STM Board**, which is the _brain_ of the whole system and mounts an STM32 F4 MCU coupled with an external RAM and an external _Oscillator_, which provides a high-precision clock
+- The **Power Board** manages the power for all the electronics, both the high-voltage/current one (e.g. actuators) and the low-voltage logic
 
-Other components of the Electronics System are, for example, the RF communication system and the power supply system. All of these are designed in-house.
+Also, every event and sensor datapoint, as well as routine checks of the software and hardware, are logged to an **SD Card**, which is enclosed in a _black box_ that is designed to resist any impact with the ground.
+
+The **Actuators** electronics in our case is composed by servo-motors, used to drive the aerobrakes and the opening of the nosecone, and [Cypres cutters](https://www.cypres.aero/sparepart/pulley-part/), which are used for the deployment of the second parachute.
 
 ## Mission recap
 
@@ -104,6 +105,8 @@ With a little less approximation, we can divide the flight into the following ph
 
 ## What does the software do?
 
+{{< figure src="img/obsw_diagram.png.webp" caption="Components of the on-board software (OBSW). © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
+
 While an extensive description of every single software component of our OBSW is out of the scope of this post, let me at least try to give you the gist of some of the things that the on-board software has to take care of, and the classes of problems that we typically face.
 
 **1. Sensor sampling**
@@ -113,8 +116,6 @@ To be able to detect the current state of the rocket, and make correct predictio
 **2. Logging**
 
 All the information collected during the flight, both from the sensors and from the software itself, needs to be saved on an SD card for post-flight analysis. However, the **latency** of SD card writing operations can be quite high if you don't do them in batch, so you need to accumulate a certain amount of information and write it all together. To avoid the whole software from blocking every time we do this, we employ a variation of the [triple-buffering](https://en.wikipedia.org/wiki/Multiple_buffering) technique.
-
-{{< figure src="img/skyward-sensors-analysis.jpg.webp" caption="Post-flight analysis of the on-board sensors recordings after one of our test flights. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
 
 **3. Telemetry and Telecommands**
 
@@ -130,6 +131,8 @@ To control the system in a reliable way, we have to take into account that real 
 
 {{< figure src="img/accel-euroc.png.webp" caption="An example of the raw data coming out from the on-board accelerometers. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
 
+{{< figure src="img/skyward-sensors-analysis.jpg.webp" caption="Post-flight analysis of the on-board sensors recordings after one of our test flights. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
+
 **6. Task scheduling**
 
 Needless to say, these are quite a lot of tasks to do in parallel, so we have a custom multi-threaded, real-time [OS](https://miosix.org/) that performs the scheduling according to each task's priority.
@@ -142,11 +145,11 @@ Some of the things you don't directly see when reading code is the reasoning tha
 - **Safety**: unsurprisingly, dealing with rockets, explosives and flying things that go very fast is **dangerous**. Duh! For this reason, the whole system has to be designed from the ground up thinking about how to minimize risks and failures, and this includes the hardware, the software, the assembly and the launch procedures.
 - **Performance**: in our software we have **hard timing requirements** to meet, for example when sampling sensors or when calculating the current state of the rocket. Not being able to guarantee a routine termination in a certain time frame can cause anything from a wrong reading of the sensor to a modification of the trajectory due to early apogee detection and consequent nosecone activation.
 - **Testability**: somewhat related to safety, but also to how we develop things, we need to clearly define borders between software components and separate them, so that they can be tested a hundred times as a unit before integrating them with the whole system. This has a big impact in the long run, and has definitely influenced many of our design decisions.
-- **On-boardability**: this is a stupid term that I just invented to indicate an aspect that in my opinion has a _huge_ importance in the long-term game, which is _how difficult it is to on-board people in the project_. You can measure this as the time that a newbie has to spend with someone supervising him before he can actively contribute to the project. This might seem minor compared to the other things we listed, but the reality is that, as an association, we have a huge turnover, and even highly motivated members normally spend not more than 2 or 3 years as active part of the association (we all have to graduate in the end). This means that sometimes good documentation, predictable APIs, uniform naming rules and this kind of stuff has proven to be as important as squeezing out the most that we can from the on-board electronics.
+- **On-boardability**: You can measure this as the time that a newbie has to spend with someone supervising him before he can actively contribute to the project. This might seem minor compared to the other things we listed, but the reality is that, as an association, we have a huge turnover, and even highly motivated members normally spend not more than 2 or 3 years as active part of the association (we all have to graduate in the end). This means that sometimes good documentation, predictable APIs, uniform naming rules, a clear development process and this kind of stuff has proven to be as important as squeezing out the most that we can from the on-board electronics.
 
-# Why tho?
+# Y tho?
 
-A question that I generally get asked a lot when talking about this kind of stuff is: _yeah cool, but what's the point of launching a rocket like this?_
+A question I generally get asked when talking about this kind of stuff is: _what's the point of building such a small rocket?_
 
 I think my personal answer is: **to do something challenging**. I genuinely think there is a great value in being part of a group of people that voluntarily tries to do difficult stuff in a way that can miserably fail, and with no real incentives other than the challenge itself (we don't get paid nor we earn extra university credits).
 
