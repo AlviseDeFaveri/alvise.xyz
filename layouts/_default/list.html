@@ -8,15 +8,13 @@
     <a class="post-anchor" href="{{ .Permalink }}" title="{{ .Title }}">
         <div class="post">
             <p>
+                <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}<br> ~{{ math.Round (div (countwords .Content) 220.0) }} min.</div>
                 <div class="post-link">{{ .Title }}</div>
-                <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }} • ~{{ math.Round (div (countwords .Content) 220.0) }} min.</div>
-                <div class="summary">{{ .Summary | plainify }}</div>
-                {{ if .Truncated }}
+                <div class="summary">{{ .Summary }}</div>
                 <!-- This <div> includes a read more link, but only if the summary is truncated... -->
                 <div>
                   <a href="{{ .Permalink }}">Read More…</a>
                 </div>
-                {{ end }}
             </p>
         </div>
     </a>

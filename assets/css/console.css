@@ -303,7 +303,7 @@ button {
 
 .posts-list {
   position: relative;
-  padding-left: 7em;
+  padding-left: 8em;
   top: 0;
 }
 
@@ -322,7 +322,7 @@ button {
   display: inline-block;
   position: absolute;
   left: 10px;
-  width: 7em;
+  width: 9em;
   z-index: 400;
   padding-top: 0;
   font-size: small;
@@ -337,14 +337,27 @@ button {
   text-decoration: none !important;
 }
 
+.summary-main {
+  color: var(--font-color);
+  font-size: calc(var(--global-font-size) * 0.8);
+  font-weight: normal;
+  line-height: 1.4em;
+  padding: calc(var(--global-line-height) * 0.5) 0px 10px 0px;
+  text-decoration: none !important;
+}
+
 .post-anchor {
   font-size: 1.1em;
-  font-weight: bolder;
+  font-weight: normal;
 }
 
 .post-anchor:hover {
   background-color: var(--background-color);
   color: var(--font-color);
+}
+
+.read-more {
+  font-size: calc(var(--global-font-size) * 0.8);
 }
 
 /* ----- Post page --------- */
@@ -370,6 +383,7 @@ button {
 
 .post-title {
   text-align: center;
+  display: block;
   font-size: 1.9em !important;
 }
 
@@ -445,6 +459,7 @@ figure > a:hover {
 
 .btn:active {
   background-color: wheat;
+  transform: translateX(5px);
 }
 
 /* --------------- Mobile ----------------------- */
@@ -486,7 +501,7 @@ figure > a:hover {
     display: inline-block;
     position: absolute;
     left: 0px;
-    width: 7em;
+    width: 9em;
     z-index: 400;
     font-weight: normal;
     font-size: small;
