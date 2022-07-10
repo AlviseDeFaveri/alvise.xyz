@@ -3,23 +3,19 @@
 {{ .Content }}
 
 <div class="posts-list">
-{{ range sort .Data.Pages "Date" "desc" }}
-    {{ if not .Params.private }}
-    <a class="post-anchor" href="{{ .Permalink }}" title="{{ .Title }}">
-        <div class="post">
-            <p>
-                <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}<br> ~{{ math.Round (div (countwords .Content) 220.0) }} min.</div>
-                <div class="post-link">{{ .Title }}</div>
-                <div class="summary">{{ .Summary }}</div>
-                <!-- This <div> includes a read more link, but only if the summary is truncated... -->
-                <div>
+  {{ range sort .Data.Pages "Date" "desc" }} {{ if not .Params.private }}
+  <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}</div>
+  <div class="post-compact">
+    <a class="post-anchor-compact" href="{{ .Permalink }}" title="{{ .Title }}">
+      {{ .Title }}
+      <!-- <div class="summary">{{ .Summary }}</div> -->
+      <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+      <!-- <div>
                   <a href="{{ .Permalink }}">Read More…</a>
-                </div>
-            </p>
-        </div>
+                </div> -->
     </a>
-    {{ end }}
-{{ end }}
+  </div>
+  {{ end }} {{ end }}
 </div>
 
 {{ end }}

@@ -2,9 +2,9 @@
 
 <h1 class="post-title">{{ .Title }}</h1>
 
-<!-- <div class="postpage-date date">
+<div class="postpage-date date">
     📆 {{ .PublishDate.Format "2 Jan. 2006" }} • ⌚ ~{{ math.Round (div (countwords .Content) 220.0) }} min.
-</div> -->
+</div>
 {{ with .Params.linkedin }}
     // <a href="{{ . }}">Linkedin</a>
 {{ end }}

@@ -15,19 +15,19 @@
 
 <br />
 <br />
-<br />
+<div class="header-spacer"></div>
 
-<h1>Posts</h1>
+<h1>Latest Posts</h1>
 
 <div class="posts-list">
   {{ with .Site.GetPage "/posts" }}
-      {{ range first 10 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
+      {{ range first 3 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
       <a class="post-anchor" href="{{ .Permalink }}" title="{{ .Title }}">
         <div class="post">
             <p>
-                <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}<br> ~{{ math.Round (div (countwords .Content) 220.0) }} min.</div>
-                <div class="post-link-main">{{ .Title }}</div>
-                <div class="summary-main">{{ .Summary }}</div>
+                <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}.</div>
+                <div class="post-link-main"><b>{{ .Title }}</b></div>
+                <div class="summary-main">{{ .Summary | truncate 200}}</div>
                 <!-- This <div> includes a read more link, but only if the summary is truncated... -->
                 <div>
                   <a href="{{ .Permalink }}" class="read-more"><u>Read More…</u></a>
@@ -37,7 +37,8 @@
     </a>
       {{ end }}
   {{ end }}
-  </div>
+</div>
+<div class="all-posts-btn"><a class=btn href=posts>--></a></div>
 
 <!-- <h1>Projects</h1>
 
