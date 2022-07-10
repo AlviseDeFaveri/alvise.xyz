@@ -1,21 +1,17 @@
 ---
 draft: false
 date: "2022-01-06T19:21:40.000Z"
-title: ""
+title: "About"
 description: ""
-preview: /img/beemo2.png
+image: img/beemo.png
 lastmod: "2022-01-11T00:43:32.806Z"
 ---
 
-{{< figure src="/img/beemo2.png" class="headshot" >}}
+{{< figure src="img/beemo2.png" class="headshot" >}}
 
-##
+Hi there!
 
-Hi there! My name is **Alvise**, and I'm a Software Engineer from Italy 🇮🇹.
-
-This blog is where I document my learning process through the magical world of computers.
-
-# About me
+My name is **Alvise**, and I'm a Software Engineer. This blog is where I document my learning process through the magical world of computers.
 
 I enjoy exploring how computing machinery works, and
 I'm especially fascinated by the interaction between software and hardware.
