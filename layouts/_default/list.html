@@ -4,7 +4,7 @@
 
 <div class="posts-list">
   {{ range sort .Data.Pages "Date" "desc" }} {{ if not .Params.private }}
-  <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}</div>
+  <div class="date">{{ .PublishDate.Format "02-01-2006" }}</div>
   <div class="post-compact">
     <a class="post-anchor-compact" href="{{ .Permalink }}" title="{{ .Title }}">
       {{ .Title }}

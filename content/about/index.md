@@ -1,7 +1,7 @@
 ---
 draft: false
 date: "2022-01-06T19:21:40.000Z"
-title: "About"
+title: "About Me"
 description: ""
 image: img/beemo.png
 lastmod: "2022-01-11T00:43:32.806Z"
@@ -9,19 +9,19 @@ lastmod: "2022-01-11T00:43:32.806Z"
 
 {{< figure src="img/beemo2.png" class="headshot" >}}
 
-Hi there!
+Hi there! My name is **Alvise** and I am a software engineer and security researcher from Italy.
 
-My name is **Alvise**, and I'm a Software Engineer. This blog is where I document my learning process through the magical world of computers.
+I'm interested in embedded systems, system's security, compilers, weird machines and the interface between hardware and software. I also like a bunch of other stuff, which is not always related to computers.
 
-I enjoy exploring how computing machinery works, and
-I'm especially fascinated by the interaction between software and hardware.
+This blog is an excuse to write about various things that I like, and sometimes about those that I don't like.
 
-## Experiences
+## Experience
 
 Some cool things about me:
 
 - 🚀 I **flew a rocket** with the [Skyward Experimental Rocketry](https://skywarder.eu) Team
 - 🐉 I'm working on an (LLVM+QEMU)-based **decompiler**, called [rev.ng](https://rev.ng)
+- 🏎💨 I ported parts of the **V8 javascript engine**'s backend to RISCV-32
 - 🚗 I like **car hacking**, and in particular I wrote my [Master Thesis](https://www.politesi.polimi.it/bitstream/10589/180235/1/2021_10_DeFaveriTron.pdf) on CAN bus attacks
 - 🔦 I've been designing and performing **audiovisual shows** with some [good friends](https://beyondcommonideas.org) for almost a decade
 

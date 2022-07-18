@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ if .Page.Title }}{{ .Page.Title }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }} </title>
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ if .Page.Title }}{{ .Page.Title }} - {{ end }}{{ .Site.Title }}{{ end }} </title>
     {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -45,16 +45,20 @@
       <div class="container top-container">
         <div class="terminal-nav">
           <header class="terminal-logo">
-            <div class="logo terminal-prompt">
+            <a class=home-btn href="{{ .Site.BaseURL }}">~/</a>
+
+            <!-- <div class="logo terminal-prompt">
               {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
               {{ $.Scratch.Add "path" .Site.BaseURL }}
-              <a href="{{ .Site.BaseURL }}" class="no-style {{ with .Site.Params.TitleCutting }}site-name{{ end }}">{{ .Site.Title }}</a>:~/$</div></header>
+              <a href="{{ .Site.BaseURL }}" class="no-style {{ with .Site.Params.TitleCutting }}site-name{{ end }}">{{ .Site.Title }}</a>:~/$
+            </div> -->
+            </header>
               <!-- {{ range $index, $element := split $url "/" }}{{ $.Scratch.Add "path" $element }}{{ if ne $element "" }}/<a href='{{ $.Scratch.Get "path" | absURL }}'>{{ . }}</a>{{ $.Scratch.Add "path" "/" }}{{ end }}{{ end }}$</div></header> -->
           <nav class="terminal-menu">
             <ul vocab="https://schema.org/" typeof="BreadcrumbList">
-              {{ range .Site.Params.navlinks }}
+              <!-- {{ range .Site.Params.navlinks }}
               <li><a href="{{ absURL .url }}" typeof="ListItem">{{ .name }}</a></li>
-              {{ end }}
+              {{ end }} -->
               <li><span class="separator"></span></li>
               <li><button id="theme-toggle">🌓︎</button></li>
             </ul>

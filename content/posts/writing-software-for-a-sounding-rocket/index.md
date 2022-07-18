@@ -1,18 +1,18 @@
 ---
-Title: "Under the hood of a rocket's on-board software"
+Title: "Writing software for a sounding rocket"
 date: 2022-01-21
 RepoCard: false
 math: false
 highlight: false
 image: img/rocket.jpg
-summary: So, this year is going to be 5 years since I first joined Skyward Experimental Rocketry, a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride! I've learned a lot from this team, both from a technical and a human perspective, and I'd like to give something back...
+summary: This year is going to be 5 years since I first joined Skyward Experimental Rocketry, a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride! I've learned a lot from this team, both from a technical and a human perspective, and I'd like to give something back...
 ---
 
-{{< figure link="https://www.skywarder.eu/blog/lynx-en/" src=img/rocket.jpg.webp caption="Test launch in Roccaraso (🇮🇹). © Skyward Experimental Rocketry, 2021">}}
-
-So, this year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride!
+This year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride!
 
 I've learned a lot from this team, both from a technical and a human perspective, and I'd like to give something back. So, to celebrate the fact that they've just [open-sourced](https://github.com/skyward-er) their on-board software (**OBSW**), I figured it would be fun to write something about what this software does and how we developed it.
+
+{{< figure link="https://www.skywarder.eu/blog/lynx-en/" src=img/rocket.jpg.webp caption="Test launch in Roccaraso (🇮🇹). © Skyward Experimental Rocketry, 2021">}}
 
 I won't be diving into the nitty gritty implementation details here (I might do that in a separate post in the future): what I want to provide is a high-level overview of what the software has to do and what type of problems it has to face.
 
@@ -26,9 +26,9 @@ If you want to get your hands dirty, I'd recommend you start from the following 
 
 <!-- I hope this overview can be useful for both newbies trying to grasp the big picture of this kind of software and for anyone curious to know something more about how we do things in Skyward and what kind of problems do you even need to worry about when writing software for a rocket. -->
 
-# Some context
+## Some context
 
-In this post I'll be talking specifically about our latest rocket, Lynx, which we built to participate to our first international competition ever: [EuRoc](https://euroc.pt), a newborn competition held in Portugal between students of technical universities from all around Europe.
+In this post I'll be talking specifically about our latest rocket, **Lynx**, which we built to participate to our first international competition ever: [EuRoc](https://euroc.pt), a newborn competition held in Portugal between students of technical universities from all around Europe.
 
 <!-- {{< figure src="img/team.CR2.webp" caption="Some nice moments from EuRoC 2021 🙂. © Skyward Experimental Rocketry, 2021" size="800x" width="800">}} -->
 
@@ -57,7 +57,7 @@ Note that, in order to target an _exact_ altitude, the rocket must be able to co
 
 For what concerns the specific characteristics of each engine type, the EuRoc guys made a [great post](https://www.instagram.com/p/CUhoVtkNmTi) on this topic, so I won't dig too much into the details of it.
 
-For Lynx, we went for the Aerotech M2000R (you can find all the specs on [the Lynx page](https://www.skywarder.eu/blog/lynx-en/) on the team's website) this year, although we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/) for future editions.
+For Lynx, we went for the Aerotech M2000R (you can find all the specs on [the Lynx page](https://www.skywarder.eu/blog/lynx-en/) of our website) this year, although we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/) for future editions.
 
 {{< figure src="img/skyward-euroc21-ignition.png.webp" caption="Preparation of the rocket before ignition. © Skyward Experimental Rocketry, 2021" size="800x" width="800">}}
 
@@ -67,9 +67,9 @@ So, how do you even control this thing? Well, in short, you can't control the mo
 
 <!-- Another thing that has to be taken into account with solid motors is reliability: small difference in the propellant, external conditions (temperature, humidity etc.) and in the igniter can cause significant difference in the *performance* of the motor, i.e. the amount of total thrust it will provide. Hence, you have to design your control algorithms to react in real-time to the measured acceleration profile, which you don't really know until you don't start the engine. -->
 
-# The role of the on-board software
+## The role of the on-board software
 
-Skyward develops and maintains all kinds of software: some is used for simulating the trajectory of the flight, other is used by Mission Control in the **Ground Station** during launch-day, and another part, the so-called **on-board software**, is a bunch of C++ code that gets actually executed _inside_ the rocket.
+Skyward develops and maintains all kinds of software: some is used for simulating the trajectory of the flight, other is used by Mission Control in the **Ground Station** during launch-day, and another part, the so-called **on-board software**, is a bunch of code written in C++ that gets executed _inside_ the rocket.
 
 But where _exactly_ inside the rocket?
 
@@ -147,7 +147,7 @@ Some of the things you don't directly see when reading code is the reasoning tha
 - **Testability**: somewhat related to safety, but also to how we develop things, we need to clearly define borders between software components and separate them, so that they can be tested a hundred times as a unit before integrating them with the whole system. This has a big impact in the long run, and has definitely influenced many of our design decisions.
 - **On-boardability**: You can measure this as the time that a newbie has to spend with someone supervising him before he can actively contribute to the project. This might seem minor compared to the other things we listed, but the reality is that, as an association, we have a huge turnover, and even highly motivated members normally spend not more than 2 or 3 years as active part of the association (we all have to graduate in the end). This means that sometimes good documentation, predictable APIs, uniform naming rules, a clear development process and this kind of stuff has proven to be as important as squeezing out the most that we can from the on-board electronics.
 
-# Y tho?
+## Y tho?
 
 A question I generally get asked when talking about this kind of stuff is: _what's the point of building such a small rocket?_
 
@@ -162,7 +162,7 @@ A part from the personal aspect, there is obviously an **educational aspect** to
 
 There's also a **technological aspect** to it, since having all sorts of budget, time and people constraints forces you to be creative in devising solutions to problems that might normally require millions to be spent, and having this coupled with a low technical debt and a team of highly motivated engineers can drive innovation in all sorts of crazy ways.
 
-# What's next?
+## What's next?
 
 The future for Skyward looks bright, and I'm sure we will perform even better in the next competitions.
 

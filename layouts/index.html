@@ -1,23 +1,26 @@
 {{ define "main" }}
 
-<h1>Hi!</h1>
+<h1>Hi</h1>
 
 <p>
-  Hi there! I'm a Software Engineer from Italy 🇮🇹, and this is my personal blog.
-  I like computers,
+  Hi there! I'm <b>Alvise</b>, a software engineer and security researcher from Italy 🇮🇹.
+  <br>
+  <br>
+  I like computers, <a href="https://rev.ng">(de)compilers</a>,
   <a href="https://skywarder.eu">rockets</a>,
-  <a href="https://beyondcommonideas.org">projection mapping</a>, old school
-  hip-hop
+  <a href="https://www.politesi.polimi.it/bitstream/10589/180235/1/2021_10_DeFaveriTron.pdf">car hacking</a>,
+  <a href="https://beyondcommonideas.org">audiovisual shows</a>,
   <a href="https://open.spotify.com/playlist/22MKaB3ZF6C01ZCX8KkCgi">music</a>,
-  and sometimes humans.
+  and sometimes humans too.
 </p>
-<a class="btn" href="about/">More...</a>
+<br>
 
-<br />
-<br />
-<div class="header-spacer"></div>
+<a class="btn" href="about/">About -></a>
+<br>
+<br>
+<br>
 
-<h1>Latest Posts</h1>
+<h1>Posts</h1>
 
 <div class="posts-list">
   {{ with .Site.GetPage "/posts" }}
@@ -25,12 +28,11 @@
       <a class="post-anchor" href="{{ .Permalink }}" title="{{ .Title }}">
         <div class="post">
             <p>
-                <div class="date">{{ .PublishDate.Format "2 Jan. 2006" }}.</div>
+                <div class="date">{{ .PublishDate.Format "02-01-2006" }}</div>
                 <div class="post-link-main"><b>{{ .Title }}</b></div>
                 <div class="summary-main">{{ .Summary | truncate 200}}</div>
-                <!-- This <div> includes a read more link, but only if the summary is truncated... -->
                 <div>
-                  <a href="{{ .Permalink }}" class="read-more"><u>Read More…</u></a>
+                  <a href="{{ .Permalink }}" class="read-more"><u>Read More »</u></a>
                 </div>
             </p>
         </div>
@@ -38,7 +40,7 @@
       {{ end }}
   {{ end }}
 </div>
-<div class="all-posts-btn"><a class=btn href=posts>--></a></div>
+<div class="all-posts-btn"><a class=btn href=posts>Posts -></a></div>
 
 <!-- <h1>Projects</h1>
 

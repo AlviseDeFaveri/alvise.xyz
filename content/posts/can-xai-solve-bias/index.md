@@ -1,5 +1,5 @@
 ---
-Title: "AI Explanation: what the hell is even that?"
+Title: "Will AI explanation save us from the bias problem?"
 date: 2022-07-07
 RepoCard: true
 math: false
@@ -8,7 +8,7 @@ image: img/ml.jpg
 summary: During my last year of university I wrote a short paper on AI explanation as part of the final examination for the Phylosophical Issues in Computer Science course. Although this is definitely not my main field of expertise, I found that reading and reflecting on the problem of giving people a right for an explanation and trying to understand and eliminate the bias that we...
 ---
 
-{{< figure src=img/ml.jpg.webp caption="Machine Learning Memes for Convolutional Teens">}}
+{{< figure width=800px src=img/ml.jpg.webp caption="Machine Learning Memes for Convolutional Teens">}}
 
 During my last year of university I wrote a short paper on AI explanation as part of the final examination for the _Phylosophical Issues in Computer Science_ course.
 

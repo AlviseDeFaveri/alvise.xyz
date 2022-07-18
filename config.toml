@@ -16,7 +16,7 @@ summaryLength = 50
 
   # Set the animation style -- https://animate.style/
   # To disable animations, please remove or comment animationStyle parameter
-  animateStyle = " animated fadeInUp faster"
+  # animateStyle = " animated fadeInUp faster"
 
   # [[params.navlinks]]
   # name = "blog/"
