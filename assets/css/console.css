@@ -69,8 +69,8 @@ html[data-theme="light"] {
   --global-font-color: #2c2f36;
   --shadow-color: #2c2f36;
   --font-color: #2c2f36;
-  --code-bg-color: #FFF;
-  --background-color: #FFF   ;
+  --code-bg-color: #FFFFFF;
+  --background-color: #FFFFFF   ;
   --primary-color: #cf8a05;
   --dark-primary-color: #cf8a05;
   --secondary-color: #777777;
@@ -147,7 +147,7 @@ h1,
   font-weight: 600;
   padding-top: 60px;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 h1::after {
@@ -215,6 +215,7 @@ a:hover {
   min-width: 250px;
   padding: 0px 50px;
   height: 100%;
+  padding-top: 75px;
 }
 
 .footer {
@@ -312,7 +313,7 @@ a:hover {
   /* box-shadow: 7px 7px 0px var(--font-color); */
   margin-top: 14px;
   padding-bottom: 10px;
-  /* border-bottom: 1px dashed var(--secondary-color); */
+  border-bottom: 1px dashed var(--secondary-color);
   max-width: var(--page-width);
 }
 
@@ -561,8 +562,9 @@ figure > a:hover {
 @media only screen and (max-width: 750px) {
   .main-container {
     min-width: 250px;
-    padding: 0px 15px;
+    padding: 0px 20px;
     font-size: 1rem;
+    padding-top: 75px;
   }
 
   .top-container {
@@ -581,7 +583,7 @@ figure > a:hover {
   }
 
   .terminal-nav {
-    padding: 0px 5px;
+    padding: 0px 15px;
     margin-top: 0px;
     font-size: small;
   }
