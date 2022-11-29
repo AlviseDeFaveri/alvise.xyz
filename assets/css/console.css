@@ -345,6 +345,7 @@ a:hover {
   padding-left: 7em;
   top: 0;
   width:90%;
+
 }
 
 .post h1,
@@ -355,7 +356,9 @@ a:hover {
 }
 
 .post {
+  border-radius: 15px;
   margin-bottom: 50px;
+
 }
 
 .post-compact {

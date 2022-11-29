@@ -2,6 +2,8 @@
 <h1>{{ .Page.Title }}</h1>
 {{ .Content }}
 
+<br>
+
 <div class="posts-list">
   {{ range sort .Data.Pages "Date" "desc" }} {{ if not .Params.private }}
   <div class="date">{{ .PublishDate.Format "02-01-2006" }}</div>
