@@ -1,17 +1,18 @@
-<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}
+style="
+         {{- with .Get "max-width" }}max-width:{{ . }}{{ end -}};
+">
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- end -}}
-
-    {{ $size := .Get "size"}}
-    {{ $original := (.Page.Resources.ByType "image").GetMatch (printf "*%s*" (.Get "src")) }}
-    {{ $image := $original.Resize $size }}
-    <img src="{{ $image.RelPermalink }}"
+    <img src="{{ .Get "src" }}"
          {{- if or (.Get "alt") (.Get "caption") }}
-         alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify | plainify }}{{ end }}"
+         alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
          {{- end -}}
-         {{- with .Get "width" }} width="{{ . }}px"{{ end -}}
-         {{- with .Get "height" }} height="{{ . }}px"{{ end -}}
+         style="{{ with .Get "width" }} width:{{ . }}{{ end -}};
+         {{- with .Get "height" }}height:{{ . }}{{ end -}};
+         {{- with .Get "margin-left" }}margin-left:{{ . }}{{ end -}};
+         "
     /><!-- Closing img tag -->
     {{- if .Get "link" }}</a>{{ end -}}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}

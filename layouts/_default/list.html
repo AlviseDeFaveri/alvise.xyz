@@ -1,23 +1,22 @@
 {{ define "main" }}
 <h1>{{ .Page.Title }}</h1>
-{{ .Content }}
 
-<br>
-
-<div class="posts-list">
+<ul>
   {{ range sort .Data.Pages "Date" "desc" }} {{ if not .Params.private }}
-  <div class="date">{{ .PublishDate.Format "02-01-2006" }}</div>
-  <div class="post-compact">
-    <a class="post-anchor-compact" href="{{ .Permalink }}" title="{{ .Title }}">
-      {{ .Title }}
-      <!-- <div class="summary">{{ .Summary }}</div> -->
-      <!-- This <div> includes a read more link, but only if the summary is truncated... -->
-      <!-- <div>
-                  <a href="{{ .Permalink }}">Read More…</a>
-                </div> -->
-    </a>
-  </div>
+  <li>
+    <div class="post-compact">
+      <a class="post-anchor-compact post-anchor-title" href="{{ .Permalink }}" title="{{ .Title }}">
+        {{ .Title }}
+        <!-- <div class="summary">{{ .Summary }}</div> -->
+        <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+          <!-- <div>
+            <a href="{{ .Permalink }}">Read More…</a>
+          </div> -->
+        </a>
+        <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
+      </div>
+</li>
   {{ end }} {{ end }}
-</div>
+</ul>
 
 {{ end }}

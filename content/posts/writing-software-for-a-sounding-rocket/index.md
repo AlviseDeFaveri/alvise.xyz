@@ -1,30 +1,30 @@
 ---
 Title: "Writing software for a sounding rocket"
-date: 2022-01-21
-RepoCard: false
+date: "2022-01-21T00:00:00"
+RepoCard: true
 math: false
 highlight: false
 image: img/rocket.jpg
-summary: This year is going to be 5 years since I first joined Skyward Experimental Rocketry, a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride! I've learned a lot from this team, both from a technical and a human perspective, and I'd like to give something back...
+summary: "Skyward Experimental Rocketry has just released the on-board software
+          of its sounding rocket - let's talk about it!"
 ---
 
-This year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets, and oh boy, it has been a hell of a ride!
+{{< figure link="https://www.skywarder.eu/blog/lynx-en/" src=img/rocket.jpg.webp caption="Test launch in Roccaraso (🇮🇹). © Skyward Experimental Rocketry, 2021" >}}
 
-I've learned a lot from this team, both from a technical and a human perspective, and I'd like to give something back. So, to celebrate the fact that they've just [open-sourced](https://github.com/skyward-er) their on-board software (**OBSW**), I figured it would be fun to write something about what this software does and how we developed it.
 
-{{< figure link="https://www.skywarder.eu/blog/lynx-en/" src=img/rocket.jpg.webp caption="Test launch in Roccaraso (🇮🇹). © Skyward Experimental Rocketry, 2021">}}
+This year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets in Politecnico di Milano. Let me tell you, it has been a hell of a ride!
 
-I won't be diving into the nitty gritty implementation details here (I might do that in a separate post in the future): what I want to provide is a high-level overview of what the software has to do and what type of problems it has to face.
+To celebrate the fact that we've just [open-sourced](https://github.com/skyward-er) the on-board software of our latest rocket, I figured it would be cool to write a high-level introduction to the magical world of sounding rockets, from a software perspective.
 
-<!-- {{< github "skyward-er/skyward-boardcore" >}} -->
+In this post I'm just going to scratch the surface. I hope this overview can be useful for both newbies trying to grasp the big picture of this kind of software and for anyone curious to know something more about how we do things in Skyward.
 
-If you want to get your hands dirty, I'd recommend you start from the following repositories:
+Wanna read some code instead? I'd recommend you start from the following repositories:
 
 - [skyward-boardcore](https://github.com/skyward-er/skyward-boardcore), the common framework for all of our rockets, which includes drivers, shared components and some [documentation](https://github.com/skyward-er/skyward-boardcore/wiki) too
+{{< github "skyward-er/boardcore" >}}
 - Lynx's [on-board software](https://github.com/skyward-er/on-board-software), which is the actual code that runs on the rocket and is built on top of boardcore
 - Our fork of the [Miosix real-time OS](https://github.com/skyward-er/miosix-kernel), which provides multi-threading capabilities, a filesystem and other basic utilities with minimal overhead
 
-<!-- I hope this overview can be useful for both newbies trying to grasp the big picture of this kind of software and for anyone curious to know something more about how we do things in Skyward and what kind of problems do you even need to worry about when writing software for a rocket. -->
 
 ## Some context
 
@@ -45,9 +45,9 @@ Lynx in particular is a relatively small rocket (2.5m x 21kg) competing in the 3
 
 Let's start from the _target altitude_: the idea is that the nearer your **apogee** (the highest point of the rocket's flight) is to the target altitude, the more points you gain. For example, if two teams are competing in the 3km category, and one reaches 2900m of maximum altitude while the other one reaches 3500m, the former will get more points, regardless of which one flew the highest.
 
-Note that, in order to target an _exact_ altitude, the rocket must be able to control somehow its speed in real-time and to predict the apogee, to decide whether it's going too fast or not. Needless to say, this can be quite challenging for a group of students, especially when dealing with rockets that will reach a peak speed of over 1000km/h, but here's where the fun part starts.
+Note that, in order to target an _exact_ altitude, the rocket must be able to _control_ its speed and _predict_ the apogee in real-time. Needless to say, this can be quite challenging for a group of students, especially with a rocket that can reach a peak speed of over 1000km/h. Here's where the fun starts!
 
-(By the way, our final apogee was 3076m AGL, so not bad at all 😉.)
+By the way, our final result in the 3000m category was 3076m AGL, so not bad at all 😉.
 
 <!--
 {{< youtube >}}
@@ -55,25 +55,23 @@ Note that, in order to target an _exact_ altitude, the rocket must be able to co
 
 ## Launching with a solid motor
 
-For what concerns the specific characteristics of each engine type, the EuRoc guys made a [great post](https://www.instagram.com/p/CUhoVtkNmTi) on this topic, so I won't dig too much into the details of it.
+For what concerns the difference between solid, liquid and hybrid engines, the EuRoc guys made a [great post](https://www.instagram.com/p/CUhoVtkNmTi) on this topic, so I won't discuss this here: I'll just say that, for Lynx, we went for an off-the-shelf solid motor, the Aerotech M2000R (you can find all the specs on [the Lynx page](https://www.skywarder.eu/blog/lynx-en/) of our website). For future editions, we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/).
 
-For Lynx, we went for the Aerotech M2000R (you can find all the specs on [the Lynx page](https://www.skywarder.eu/blog/lynx-en/) of our website) this year, although we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/) for future editions.
+{{< figure src="img/skyward-euroc21-ignition.png.webp" caption="Preparation of the rocket before ignition. © Skyward Experimental Rocketry, 2021" >}}
 
-{{< figure src="img/skyward-euroc21-ignition.png.webp" caption="Preparation of the rocket before ignition. © Skyward Experimental Rocketry, 2021" size="800x" width="800">}}
-
-Our solid motor had the advantage that we bought it off-the-shelf, but one of the problems with solid motors is that **you cannot control thrust**: basically, once you kickstart the chemical reaction, you can't stop it. Also, the amount of total thrust provided will slightly vary between motors of the same exact type, since variations in the propellant and igniter can cause significant performance differences.
+Solid motors have the advantage that you can buy them off-the-shelf, and are simpler to deal with. The downside, however, is that **you cannot control thrust**: basically, once you kickstart the chemical reaction, you can't stop it. Also, the amount of total thrust provided will slightly vary between motors of the same exact type, since variations in the propellant and igniter can cause significant performance differences.
 
 So, how do you even control this thing? Well, in short, you can't control the motor directly, but you can at least **slow down the rocket** if you use some external components. In our case, we designed a set of retractible **aerobrakes** that were controlled by the electronic system through servo motors. These aerobrakes can be opened or closed at different degrees to adapt to the current speed in real-time.
 
 <!-- Another thing that has to be taken into account with solid motors is reliability: small difference in the propellant, external conditions (temperature, humidity etc.) and in the igniter can cause significant difference in the *performance* of the motor, i.e. the amount of total thrust it will provide. Hence, you have to design your control algorithms to react in real-time to the measured acceleration profile, which you don't really know until you don't start the engine. -->
 
-## The role of the on-board software
+## Software... What software?
 
 Skyward develops and maintains all kinds of software: some is used for simulating the trajectory of the flight, other is used by Mission Control in the **Ground Station** during launch-day, and another part, the so-called **on-board software**, is a bunch of code written in C++ that gets executed _inside_ the rocket.
 
 But where _exactly_ inside the rocket?
 
-{{< figure src="img/deathstack2.jpg.webp" caption="Two components of the Death Stack, our on-board computer. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
+{{< figure src="img/deathstack2.jpg.webp" caption="Two components of the Death Stack, our on-board computer. © Skyward Experimental Rocketry, 2021" >}}
 
 ## The Electronic System
 
@@ -94,7 +92,7 @@ So, what does this complex electronics have to do in the end?
 
 Well, in first approximation, what a sounding rocket does is very simple: go up very fast, reach apogee, deploy a parachute, come down (gently). Rockets like this are typically designed to carry some kind of **payload**, such as a scientific experiment or a small cubesat, but in our case we were just carrying a dummy payload, since our goal for this mission was to validate the rocket itself.
 
-{{< figure src="img/conops.png.webp" caption="Phases of the rocket flight. © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
+{{< figure src="img/conops.png.webp" caption="Phases of the rocket flight. © Skyward Experimental Rocketry, 2021" >}}
 
 With a little less approximation, we can divide the flight into the following phases:
 
@@ -105,7 +103,7 @@ With a little less approximation, we can divide the flight into the following ph
 
 ## What does the software do?
 
-{{< figure src="img/obsw_diagram.png.webp" caption="Components of the on-board software (OBSW). © Skyward Experimental Rocketry, 2021" size="800x" width="800" >}}
+{{< figure src="img/obsw_diagram.png.webp" caption="Components of the on-board software (OBSW). © Skyward Experimental Rocketry, 2021" >}}
 
 While an extensive description of every single software component of our OBSW is out of the scope of this post, let me at least try to give you the gist of some of the things that the on-board software has to take care of, and the classes of problems that we typically face.
 

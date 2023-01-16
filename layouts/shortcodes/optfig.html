@@ -1,0 +1,5 @@
+{{- $img := .Get "src"}}
+{{- $banner := resources.Get $img}}
+{{- $jpeg := $banner.Resize (printf "%dx%d jpeg" $banner.Width $banner.Height) }}
+{{- $webp := $banner.Resize (printf "%dx%d webp photo" $banner.Width $banner.Height) }}
+          <img src="{{ $webp.RelPermalink }}" loading="lazy">

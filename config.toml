@@ -18,9 +18,13 @@ summaryLength = 50
   # To disable animations, please remove or comment animationStyle parameter
   # animateStyle = " animated fadeInUp faster"
 
-  # [[params.navlinks]]
-  # name = "blog/"
-  # url = "posts/"
+  [[params.navlinks]]
+  name = "posts/"
+  url = "posts/"
+
+  [[params.navlinks]]
+  name = "sketches/"
+  url = "infographics/"
 
   [[params.navlinks]]
   name = "about/"
