@@ -3,28 +3,18 @@
 <h1></h1>
 
 <p>
-  Hi there! I'm <b>Alvise</b>, a system security researcher from Italy. I like computers, music, and sometimes humans too.
-  <!-- <br>
-  <br>
-  I like computers, <a href="https://rev.ng">(de)compilers</a>,
-  <a href="https://skywarder.eu">rockets</a>,
-  <a href="https://www.politesi.polimi.it/bitstream/10589/180235/1/2021_10_DeFaveriTron.pdf">car hacking</a>,
-  <a href="https://beyondcommonideas.org">audiovisual shows</a>,
-  <a href="https://open.spotify.com/playlist/22MKaB3ZF6C01ZCX8KkCgi">music</a>,
-  and sometimes humans too. -->
+  Hi there! I'm <b>Alvise</b>, a software engineer with a thing for hardware. I like computers, music, and sometimes humans too.
 </p>
 
-<a class="btn" href="about/">More -></a>
+<a class="btn" href="about/">About Me -></a>
 
 <div class="header-spacer"></div>
 
 <h1>Posts</h1>
 
-Writeups about some of my projects.
-
-  {{ with .Site.GetPage "/posts" }}
-<ul>
-  {{ range first 3 (sort .Data.Pages "Date" "desc") }} {{ if not .Params.private }}
+{{with .Site.GetPage "/posts"}}
+<ul class="homepage-list">
+  {{ range sort .Data.Pages "Date" "desc" }} {{ if not .Params.private }}
   <li>
     <div class="post-compact">
       <a class="post-anchor-compact" href="{{ .Permalink }}" title="{{ .Title }}">
@@ -42,19 +32,13 @@ Writeups about some of my projects.
 </ul>
   {{ end }}
 
-<div class="header-spacer"></div>
+<!-- <div class="all-posts-btn"><a class=btn href=posts>All Posts -></a></div> -->
 
-<div class="all-posts-btn"><a class=btn href=posts>All -></a></div>
-<div class="header-spacer"></div>
+<h1>Sketches</h1>
 
-
-<h1>Infographics</h1>
-
-My attempts at drawing stuff to visualize useful concepts.
-
-  {{ with .Site.GetPage "/infographics" }}
-<ul>
-  {{ range first 3 (sort .Data.Pages "Date" "desc") }} {{ if not .Params.private }}
+  {{ with .Site.GetPage "/sketches" }}
+<ul class="homepage-list">
+  {{ range sort .Data.Pages "Date" "desc" }} {{ if not .Params.private }}
   <li>
     <div class="post-compact">
       <a class="post-anchor-compact" href="{{ .Permalink }}" title="{{ .Title }}">
@@ -72,12 +56,6 @@ My attempts at drawing stuff to visualize useful concepts.
 </ul>
   {{ end }}
 
-<div class="header-spacer"></div>
-
-<div class="all-posts-btn"><a class=btn href=infographics>All -></a></div>
-
-<!-- <h1>Projects</h1>
-
-<div class="date">// TODO</div> -->
+<!-- <div class="all-posts-btn"><a class=btn href=sketches>Sketches -></a></div> -->
 
 {{ end }}

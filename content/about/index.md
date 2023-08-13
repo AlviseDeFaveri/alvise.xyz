@@ -6,9 +6,9 @@ description: ""
 ---
 
 
-I'm a (former) software engineer and (now) computer security Ph.D. student with an embedded systems background.
+I am a (former) software engineer with an embedded system's background and (now) PhD student at the Vrije University of Amsterdam in the [system security group](https://www.vusec.net/people/alvise-dft/).
 
-My research interests include microarchitectural attacks, embedded & hardware security, program analysis, and anything at interface between hardware and software. I also like a bunch of other stuff, not necessarily related to computers.
+My research interests include **microarchitectural attacks**, embedded & **hardware security**, **program analysis**, and anything at interface between hardware and software. I also like a bunch of other stuff, not necessarily related to computers.
 
 ## Experience
 
@@ -28,14 +28,7 @@ Other stuff that I've been tinkering with:
 - 🕸️ **Web development**, in particular AWS and backend development
 - 🦄 **Startups**, either by working in them or contributing in various ways
 
-## Interests
 
-Finally, these are some of the things I like to read about:
+## Call Me Maybe
 
-- software performance
-- computer architectures
-- microarchitectural attacks & defenses
-
-# Contacts
-
-Are you interested in knowing more? You can drop me an [email](adefaveritron@gmail.com), or find me on [Twitter](https://twitter.com/HBitmasks), [Github](https://github.com/AlviseDeFaveri), [Linkedin](https://linkedin.com/in/alvise-dft).
+You can drop me an [email](adefaveritron@gmail.com), or find me on [Twitter](https://twitter.com/HBitmasks), [Github](https://github.com/AlviseDeFaveri), [Linkedin](https://linkedin.com/in/alvise-dft).
