@@ -1,5 +1,5 @@
 ---
-Title: "Writing software for a sounding rocket"
+Title: "Writing Software For a Sounding Rocket"
 date: "2022-01-21T00:00:00"
 RepoCard: true
 math: false
@@ -12,13 +12,13 @@ summary: "Skyward Experimental Rocketry has just released the on-board software
 {{< figure link="https://www.skywarder.eu/blog/lynx-en/" src=img/rocket.jpg.webp caption="Test launch in Roccaraso (🇮🇹). © Skyward Experimental Rocketry, 2021" >}}
 
 
-This year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets in Politecnico di Milano. Let me tell you, it has been a hell of a ride!
+This year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets in Politecnico di Milano, and - oh boy, it has been a hell of a ride!
 
 To celebrate the fact that we've just [open-sourced](https://github.com/skyward-er) the on-board software of our latest rocket, I figured it would be cool to write a high-level introduction to the magical world of sounding rockets, from a software perspective.
 
-In this post I'm just going to scratch the surface. I hope this overview can be useful for both newbies trying to grasp the big picture of this kind of software and for anyone curious to know something more about how we do things in Skyward.
+In this post I'm just going to scratch the surface. I hope this overview can be useful for both newbies trying to grasp the big picture of this kind of software and for anyone curious to know something more about amateurial rocketry and what we do in Skyward.
 
-Wanna read some code instead? I'd recommend you start from the following repositories:
+Want to read some code instead? I'd recommend you start from the following repositories:
 
 - [skyward-boardcore](https://github.com/skyward-er/skyward-boardcore), the common framework for all of our rockets, which includes drivers, shared components and some [documentation](https://github.com/skyward-er/skyward-boardcore/wiki) too
 {{< github "skyward-er/boardcore" >}}
@@ -26,15 +26,15 @@ Wanna read some code instead? I'd recommend you start from the following reposit
 - Our fork of the [Miosix real-time OS](https://github.com/skyward-er/miosix-kernel), which provides multi-threading capabilities, a filesystem and other basic utilities with minimal overhead
 
 
-## Some context
+##  Some context
 
-In this post I'll be talking specifically about our latest rocket, **Lynx**, which we built to participate to our first international competition ever: [EuRoc](https://euroc.pt), a newborn competition held in Portugal between students of technical universities from all around Europe.
+As crazy as it may sound, this post is going to be about a _rocket_ that was designed, built and send into the sky by a bunch of students. And, as a matter of fact, it's not even an uncommon thing: every year, competitions like the [Spaceport America Cup](https://spaceportamericacup.com/) and the newly born [EuRoc](https://euroc.pt) competition are held among technical universities of all around the world, to decide which has the best rocketry team. How cool is that!
 
+In this post I'll be talking specifically about our latest rocket, **Lynx**, which was built to participate to our first international competition: **EuRoc**.
+The rules of this competition are quite complex, <!--since you have to provide a series of technical reports to the jury and the final score takes into account several different aspects,--> but the TL;DR is that teams compete in categories, each characterized by:
 <!-- {{< figure src="img/team.CR2.webp" caption="Some nice moments from EuRoC 2021 🙂. © Skyward Experimental Rocketry, 2021" size="800x" width="800">}} -->
 
 <!-- and is heavily inspired by another well known competition, the [Spaceport America Cup](https://spaceportamericacup.com/), which is held in the USA. -->
-
-The rules of this challenge are quite complex, <!--since you have to provide a series of technical reports to the jury and the final score takes into account several different aspects,--> but the _TL;DR_ is that teams compete in categories, each characterized by:
 
 - a **target altitude**, which can be 3km or 10km
 - an **engine type**, either solid, liquid or hybrid
@@ -55,7 +55,7 @@ By the way, our final result in the 3000m category was 3076m AGL, so not bad at 
 
 ## Launching with a solid motor
 
-For what concerns the difference between solid, liquid and hybrid engines, the EuRoc guys made a [great post](https://www.instagram.com/p/CUhoVtkNmTi) on this topic, so I won't discuss this here: I'll just say that, for Lynx, we went for an off-the-shelf solid motor, the Aerotech M2000R (you can find all the specs on [the Lynx page](https://www.skywarder.eu/blog/lynx-en/) of our website). For future editions, we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/).
+For what concerns the difference between solid, liquid and hybrid engines, the EuRoc guys made a [great post](https://www.instagram.com/p/CUhoVtkNmTi) about this topic, so I won't go too deep into the details here: I'll just say that, for Lynx, we went for an off-the-shelf solid motor, the Aerotech M2000R (you can find all the specs on [the Lynx page](https://www.skywarder.eu/blog/lynx-en/) of our website). For future editions, we are preparing our own [hybrid motor](https://www.skywarder.eu/blog/chimaera-en/).
 
 {{< figure src="img/skyward-euroc21-ignition.png.webp" caption="Preparation of the rocket before ignition. © Skyward Experimental Rocketry, 2021" >}}
 
@@ -67,7 +67,7 @@ So, how do you even control this thing? Well, in short, you can't control the mo
 
 ## Software... What software?
 
-Skyward develops and maintains all kinds of software: some is used for simulating the trajectory of the flight, other is used by Mission Control in the **Ground Station** during launch-day, and another part, the so-called **on-board software**, is a bunch of code written in C++ that gets executed _inside_ the rocket.
+Skyward develops and maintains different kinds of software: some is used for simulating the trajectory of the flight, other is used on the **Ground Station** during launch day, and another part, the so-called **on-board software**, is a bunch of code written in C++ that gets executed _inside_ the rocket.
 
 But where _exactly_ inside the rocket?
 
@@ -75,16 +75,16 @@ But where _exactly_ inside the rocket?
 
 ## The Electronic System
 
-Our on-board computer, called the _Death Stack_, is arguably one of the most complex subsystems of the entire rocket. It is composed of four electronics boards (or *PCB*s) stacked one onto another. Its components are:
+Our on-board computer, called the _Death Stack_, is arguably one of the most complex subsystems of the entire rocket. It is composed of four custom circuit boards (*PCB*s) stacked on top of each other. Its components are:
 
 - The **Analog Board** that contains most of the sensors, including four analog pressure sensors, one digital pressure sensor, the nosecone detach pin and the launchpad detach pin (detects liftoff)
-- The **RF+IMU Board** that is equipped with a GPS receiver, an RF module (Xbee 868 MHz) used to communicate with the ground station, and IMU + magnetometer to estimate the current attitude of the rocket
-- The **STM Board**, which is the _brain_ of the whole system and mounts an STM32 F4 MCU coupled with an external RAM and an external _Oscillator_, which provides a high-precision clock
+- The **RF+IMU Board** that is equipped with a GPS receiver, a radio transceiver (Xbee 868 MHz) used to communicate with the ground station, and IMU + magnetometer to estimate the attitude of the rocket
+- The **STM Board**, a.k.a. the "_brain_" of the whole system, on which we have an STM32 F4 microcontroller coupled with some other components such as an external RAM module and an external _Oscillator_, which provides a high-precision clock
 - The **Power Board** manages the power for all the electronics, both the high-voltage/current one (e.g. actuators) and the low-voltage logic
 
-Also, every event and sensor datapoint, as well as routine checks of the software and hardware, are logged to an **SD Card**, which is enclosed in a _black box_ that is designed to resist any impact with the ground.
+Every event and sensor datapoint, as well as each routine check made on the software and hardware, is logged to an **SD Card**, which is enclosed in a _black box_ designed to resist an impact with the ground.
 
-The **Actuators** electronics in our case is composed by servo-motors, used to drive the aerobrakes and the opening of the nosecone, and [Cypres cutters](https://www.cypres.aero/sparepart/pulley-part/), which are used for the deployment of the second parachute.
+The **Actuators** electronics in our case consists of servo-motors, used to drive the aerobrakes and the opening of the nosecone, and [Cypres cutters](https://www.cypres.aero/sparepart/pulley-part/), which are used for the deployment of the second parachute.
 
 ## Mission recap
 
@@ -109,11 +109,13 @@ While an extensive description of every single software component of our OBSW is
 
 **1. Sensor sampling**
 
-To be able to detect the current state of the rocket, and make correct predictions about the apogee, we have all sorts of sensors. Each has its own communication interface, that needs its own **driver**, and must be _sampled_ at a high frequency with precise intervals, which is where our [sensor sampler](https://github.com/skyward-er/skyward-boardcore/blob/master/src/shared/sensors/SensorSampler.cpp) comes at play.
+To be able to detect the current state of the rocket, and make correct predictions about the apogee, we have all sorts of sensors. Each sensor is different: some encode the value as an analog signal, some communicate via the I2C or the SPI bus, so each one needs a dedicated **device driver** for our custom operating system.
+
+Sensors also must be _sampled_ at a high frequency with precise intervals, which is where our [sensor sampler](https://github.com/skyward-er/skyward-boardcore/blob/master/src/shared/sensors/SensorSampler.cpp) comes at play.
 
 **2. Logging**
 
-All the information collected during the flight, both from the sensors and from the software itself, needs to be saved on an SD card for post-flight analysis. However, the **latency** of SD card writing operations can be quite high if you don't do them in batch, so you need to accumulate a certain amount of information and write it all together. To avoid the whole software from blocking every time we do this, we employ a variation of the [triple-buffering](https://en.wikipedia.org/wiki/Multiple_buffering) technique.
+All the information collected during the flight, both from the sensors and from the software itself, needs to be saved on an SD card for post-flight analysis. However, the **latency** of SD card writes can be quite high if they are not performed in batches, so we need to accumulate a certain amount of samples and then write them all together. To prevent the whole software from blocking every time we do this, we employ a variation of the [triple-buffering](https://en.wikipedia.org/wiki/Multiple_buffering) technique.
 
 **3. Telemetry and Telecommands**
 
@@ -143,7 +145,7 @@ Some of the things you don't directly see when reading code is the reasoning tha
 - **Safety**: unsurprisingly, dealing with rockets, explosives and flying things that go very fast is **dangerous**. Duh! For this reason, the whole system has to be designed from the ground up thinking about how to minimize risks and failures, and this includes the hardware, the software, the assembly and the launch procedures.
 - **Performance**: in our software we have **hard timing requirements** to meet, for example when sampling sensors or when calculating the current state of the rocket. Not being able to guarantee a routine termination in a certain time frame can cause anything from a wrong reading of the sensor to a modification of the trajectory due to early apogee detection and consequent nosecone activation.
 - **Testability**: somewhat related to safety, but also to how we develop things, we need to clearly define borders between software components and separate them, so that they can be tested a hundred times as a unit before integrating them with the whole system. This has a big impact in the long run, and has definitely influenced many of our design decisions.
-- **On-boardability**: You can measure this as the time that a newbie has to spend with someone supervising him before he can actively contribute to the project. This might seem minor compared to the other things we listed, but the reality is that, as an association, we have a huge turnover, and even highly motivated members normally spend not more than 2 or 3 years as active part of the association (we all have to graduate in the end). This means that sometimes good documentation, predictable APIs, uniform naming rules, a clear development process and this kind of stuff has proven to be as important as squeezing out the most that we can from the on-board electronics.
+- **On-boardability**: You can measure this as the time that a newbie has to spend with someone supervising them before they can actively contribute to the project. This might seem minor compared to other things we listed, but the reality is that, as a voluntary student association, we have a huge turnover, and even highly motivated members are typically out of the game after 2 or 3 years (we all need to graduate in the end). This means that sometimes good documentation, uniform naming rules, a clear development process and this kind of stuff has proven to be as important as squeezing out the most that we can from the on-board electronics.
 
 ## Y tho?
 
