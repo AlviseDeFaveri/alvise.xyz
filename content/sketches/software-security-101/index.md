@@ -1,11 +1,12 @@
 ---
-draft: false
+draft: true
 date: "2023-01-14"
-title: "Software Security 101"
+title: "Software Security 101 Infographic"
 description: ""
+summary: "These sketches are a visual guide of some very basic concepts which are generally taught in Software Security 101 courses, like buffer overflows, heap exploitation and format string vulnerabilities."
 ---
 
-These are a few sketches covering very basic topics of Computer Security.
+These sketches are a visual guide of some very basic concepts which are generally taught in Software Security 101 courses, like buffer overflows, heap exploitation and format string vulnerabilities.
 
 [Full Infographic](security-101.png).
 
