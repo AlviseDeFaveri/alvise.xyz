@@ -12,7 +12,7 @@
     {{- $terminal := (resources.Get "hugo-theme-console/css/terminal-0.7.1.min.css")}}
     {{- $console := (resources.Get "css/console.css")}}
     {{- $animate :=      (resources.Get "hugo-theme-console/css/animate-3.7.2.min.css")}}
-    {{- $stylesheet := slice $animate $terminal $console  | resources.Concat "main.css"}}
+    {{- $stylesheet := slice $terminal $console  | resources.Concat "main.css"}}
     {{- $stylesheet := $stylesheet | minify | fingerprint}}
     <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" media="all">
 

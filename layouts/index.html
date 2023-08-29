@@ -18,15 +18,18 @@
   <li>
     <div class="post-compact">
       <a class="post-anchor-compact" href="{{ .Permalink }}" title="{{ .Title }}">
-        {{ .Title }}
-        <!-- <div class="summary">{{ .Summary }}</div> -->
-        <!-- This <div> includes a read more link, but only if the summary is truncated... -->
-          <!-- <div>
-            <a href="{{ .Permalink }}">Read More…</a>
-          </div> -->
-        </a>
-        <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
-      </div>
+        <!-- <div class="post-main-img"><img src="{{ .Permalink }}/../{{ .Params.image }}"></div> -->
+        <div class="post-main-text">
+          <h3>{{ .Title }}</h3>
+          <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
+          <div class="summary">{{ .Summary | truncate 250 }}</div>
+          <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+            <!-- <div>
+              <a href="{{ .Permalink }}">Read More…</a>
+            </div> -->
+        </div>
+        </div>
+      </a>
 </li>
   {{ end }} {{ end }}
 </ul>
@@ -42,15 +45,18 @@
   <li>
     <div class="post-compact">
       <a class="post-anchor-compact" href="{{ .Permalink }}" title="{{ .Title }}">
-        {{ .Title }}
-        <!-- <div class="summary">{{ .Summary }}</div> -->
+        <div class="post-main-text">
+
+        <h3>{{ .Title }}</h3>
+        <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
+        <div class="summary">{{ .Summary }}</div>
         <!-- This <div> includes a read more link, but only if the summary is truncated... -->
           <!-- <div>
             <a href="{{ .Permalink }}">Read More…</a>
           </div> -->
-        </a>
-        <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
+        </div>
       </div>
+      </a>
 </li>
   {{ end }} {{ end }}
 </ul>

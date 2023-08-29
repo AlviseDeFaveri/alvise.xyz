@@ -1,4 +1,4 @@
-<div class="twitter">
+<div class="twitter" style="height: 650px;">
 
     {{ (getJSON "https://api.twitter.com/1.1/statuses/oembed.json?dnt=1&hide_thread=1&id=" (index .Params 0)).html | safeHTML }}
 
