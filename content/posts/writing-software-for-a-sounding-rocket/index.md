@@ -5,8 +5,7 @@ RepoCard: true
 math: false
 highlight: false
 image: img/rocket.jpg
-summary: "Skyward Experimental Rocketry has just released the on-board software
-          of its sounding rocket - let's talk about it!"
+summary: "This year is going to be 5 years since I first joined Skyward Experimental Rocketry, and - oh boy, it has been a hell of a ride! We've just open-sourced the on-board software of our latest rocket, so I figured it would be cool to write a high-level introduction to the magical world of sounding rockets, from a software perspective."
 ---
 
 {{< figure link="https://www.skywarder.eu/blog/lynx-en/" src=img/rocket.jpg.webp caption="Test launch in Roccaraso (🇮🇹). © Skyward Experimental Rocketry, 2021" >}}
@@ -14,9 +13,9 @@ summary: "Skyward Experimental Rocketry has just released the on-board software
 
 This year is going to be 5 years since I first joined [Skyward Experimental Rocketry](https://skywarder.eu), a student association that designs and builds sounding rockets in Politecnico di Milano, and - oh boy, it has been a hell of a ride!
 
-To celebrate the fact that we've just [open-sourced](https://github.com/skyward-er) the on-board software of our latest rocket, I figured it would be cool to write a high-level introduction to the magical world of sounding rockets, from a software perspective.
-
-In this post I'm just going to scratch the surface. I hope this overview can be useful for both newbies trying to grasp the big picture of this kind of software and for anyone curious to know something more about amateurial rocketry and what we do in Skyward.
+We've just [open-sourced](https://github.com/skyward-er) the on-board software of our latest rocket, so I figured it would be cool to write a high-level introduction to the magical world of sounding rockets, from a software perspective.
+<!--
+In this post I'm just going to scratch the surface. I hope this overview can be useful for both newbies trying to grasp the big picture of this kind of software and for anyone curious to know something more about amateurial rocketry and what we do in Skyward. -->
 
 Want to read some code instead? I'd recommend you start from the following repositories:
 
@@ -28,7 +27,7 @@ Want to read some code instead? I'd recommend you start from the following repos
 
 ##  Some context
 
-As crazy as it may sound, this post is going to be about a _rocket_ that was designed, built and send into the sky by a bunch of students. And, as a matter of fact, it's not even an uncommon thing: every year, competitions like the [Spaceport America Cup](https://spaceportamericacup.com/) and the newly born [EuRoc](https://euroc.pt) competition are held among technical universities of all around the world, to decide which has the best rocketry team. How cool is that!
+As crazy as it may sound, this post is going to be about a _rocket_ that was designed, built and send into the sky by a bunch of students. And, as a matter of fact, it's not even an uncommon thing: every year, competitions like the [Spaceport America Cup](https://spaceportamericacup.com/) and the newly born [EuRoc](https://euroc.pt) competition are held among technical universities from all around the world to decide which one has the best rocketry team. How cool is that!
 
 In this post I'll be talking specifically about our latest rocket, **Lynx**, which was built to participate to our first international competition: **EuRoc**.
 The rules of this competition are quite complex, <!--since you have to provide a series of technical reports to the jury and the final score takes into account several different aspects,--> but the TL;DR is that teams compete in categories, each characterized by:
@@ -43,7 +42,7 @@ Lynx in particular is a relatively small rocket (2.5m x 21kg) competing in the 3
 
 ## Target altitude
 
-Let's start from the _target altitude_: the idea is that the nearer your **apogee** (the highest point of the rocket's flight) is to the target altitude, the more points you gain. For example, if two teams are competing in the 3km category, and one reaches 2900m of maximum altitude while the other one reaches 3500m, the former will get more points, regardless of which one flew the highest.
+Let's start from the _target altitude_: the idea is that the nearer the **apogee** (the highest point of the rocket's flight) is to the target altitude, the more points you gain. For example, if two teams are competing in the 3km category, and one reaches 2900m of maximum altitude while the other one reaches 3500m, the former will get more points, regardless of which one flew the highest.
 
 Note that, in order to target an _exact_ altitude, the rocket must be able to _control_ its speed and _predict_ the apogee in real-time. Needless to say, this can be quite challenging for a group of students, especially with a rocket that can reach a peak speed of over 1000km/h. Here's where the fun starts!
 
