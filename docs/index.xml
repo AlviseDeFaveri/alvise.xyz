@@ -1,2 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>alvise.xyz</title><link>https://www.alvise.xyz/</link><description>Recent content on alvise.xyz</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.alvise.xyz/index.xml" rel="self" type="application/rss+xml"/><item><title>Dynamic Linking Infographic</title><link>https://www.alvise.xyz/sketches/dynamic-linking/</link><pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate><guid>https://www.alvise.xyz/sketches/dynamic-linking/</guid><description>What happens when your code calls &lt;code>printf()&lt;/code>? And what&amp;rsquo;s up with all that &lt;code>.got.plt&lt;/code> stuff that you see when you decompile a binary? Here are some sketches I drew to help me remember this kind of stuff.</description></item><item><title>Writing Software For a Sounding Rocket</title><link>https://www.alvise.xyz/posts/writing-software-for-a-sounding-rocket/</link><pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate><guid>https://www.alvise.xyz/posts/writing-software-for-a-sounding-rocket/</guid><description>This year is going to be 5 years since I first joined Skyward Experimental Rocketry, and - oh boy, it has been a hell of a ride! We&amp;rsquo;ve just open-sourced the on-board software of our latest rocket, so I figured it would be cool to write a high-level introduction to the magical world of sounding rockets, from a software perspective.</description></item><item><title>About</title><link>https://www.alvise.xyz/about/</link><pubDate>Thu, 06 Jan 2022 19:21:40 +0000</pubDate><guid>https://www.alvise.xyz/about/</guid><description>Hi there! I&amp;rsquo;m Alvise, a (former) software engineer with an embedded systems background and (now) PhD student at the Vrije University of Amsterdam in the VUSec group.
-I like microarchitectural attacks, embedded &amp;amp; hardware security, program analysis, and anything at interface between hardware and software. I also like music, audiovisual arts, and sometimes humans too.</description></item><item><title>[Writeup] Some (Web) Assembly Required</title><link>https://www.alvise.xyz/posts/picoctf-some-assembly-required/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.alvise.xyz/posts/picoctf-some-assembly-required/</guid><description>I&amp;rsquo;ve been looking at some old picoCTF challenges lately, this is my solution for one of them. It&amp;rsquo;s a gentle introduction to decompilation and reversing, but with a spinkle of Web Assembly on top.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>alvise.xyz</title>
+    <link>https://www.alvise.xyz/</link>
+    <description>Recent content on alvise.xyz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.alvise.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dynamic Linking Infographic</title>
+      <link>https://www.alvise.xyz/sketches/dynamic-linking/</link>
+      <pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.alvise.xyz/sketches/dynamic-linking/</guid>
+      <description>What happens when your code calls &lt;code&gt;printf()&lt;/code&gt;? And what&amp;rsquo;s up with all that &lt;code&gt;.got.plt&lt;/code&gt; stuff that you see when you decompile a binary? Here are some sketches I drew to help me remember this kind of stuff.</description>
+    </item>
+    <item>
+      <title>Writing Software For a Sounding Rocket</title>
+      <link>https://www.alvise.xyz/posts/writing-software-for-a-sounding-rocket/</link>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.alvise.xyz/posts/writing-software-for-a-sounding-rocket/</guid>
+      <description>This year is going to be 5 years since I first joined Skyward Experimental Rocketry, and - oh boy, it has been a hell of a ride! We&amp;rsquo;ve just open-sourced the on-board software of our latest rocket, so I figured it would be cool to write a high-level introduction to the magical world of sounding rockets, from a software perspective.</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://www.alvise.xyz/about/</link>
+      <pubDate>Thu, 06 Jan 2022 19:21:40 +0000</pubDate>
+      <guid>https://www.alvise.xyz/about/</guid>
+      <description>Hi there! I&amp;rsquo;m Alvise, a (former) software engineer with an embedded systems background and (now) PhD student at the Vrije University of Amsterdam in the VUSec group.&#xA;I like microarchitectural attacks, embedded &amp;amp; hardware security, program analysis, and anything at interface between hardware and software. I also like music, audiovisual arts, and sometimes humans too.</description>
+    </item>
+    <item>
+      <title>[Writeup] Some (Web) Assembly Required</title>
+      <link>https://www.alvise.xyz/posts/picoctf-some-assembly-required/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.alvise.xyz/posts/picoctf-some-assembly-required/</guid>
+      <description>I&amp;rsquo;ve been looking at some old picoCTF challenges lately, this is my solution for one of them. It&amp;rsquo;s a gentle introduction to decompilation and reversing, but with a spinkle of Web Assembly on top.</description>
+    </item>
+  </channel>
+</rss>

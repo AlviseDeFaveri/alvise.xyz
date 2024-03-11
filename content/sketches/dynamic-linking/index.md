@@ -19,8 +19,8 @@ First of all, we need to understand the difference between a **statically linked
 - A statically linked binary contains all the program's code _and the library code_ already linked together in a single binary blob.
 - In many cases, we don't really want to compile the whole libc inside each of our binaries. In order to be _dynamically linked_, the binary contains only the user code, together with some _relocation information_ that are used at runtime to resolve the location of library functions on the host machine.
 
-{{< resizefig max-width=40em class=invertible src=img/dyn-linking.svg >}}
-<!-- {{< resizefig max-width=40em class=invertible src=img/dyn-linking-2.svg >}} -->
+<!-- {{< resizefig max-width=40em class=invertible src=img/dyn-linking.svg >}} -->
+{{< resizefig max-width=40em class=invertible src=img/dyn-linking-2.svg >}}
 
 
 ### The Dynamic Linker
