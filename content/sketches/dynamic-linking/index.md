@@ -6,24 +6,24 @@ description: ""
 summary: "What happens when your code calls `printf()`? And what's up with all that `.got.plt` stuff that you see when you decompile a binary? Here are some sketches I drew to help me remember this kind of stuff."
 ---
 
-What happens when your code calls `printf()`? And what's up with all that `.got.plt` stuff that you see when you decompile a binary? Here are some sketches I drew to help me remember this kind of stuff.
+What happens when your code calls `printf()`? And what's up with all that `.got.plt` crap that you see when you decompile a binary? Here are some sketches I drew to help me remember this kind of stuff.
 
 [Full Infographic](img/dynamic-linking.png).
 
 <!--These sketches are mainly inspired by [How the ELF ruined the Christmas](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-di-frederico.pdf). -->
 
-### Intro: Static vs Dynamic Linking
+### Intro: Dynamic Linking
 
 First of all, we need to understand the difference between a **statically linked** binary and a dynamically linked one:
 
 - A statically linked binary contains all the program's code _and the library code_ already linked together in a single binary blob.
-- In many cases, we don't really want to compile the whole libc with each of our binary. In order to be _dynamically linked_, the binary contains only the user code, together with some _relocation information_ that are used at runtime to resolve the location of library functions.
+- In many cases, we don't really want to compile the whole libc inside each of our binaries. In order to be _dynamically linked_, the binary contains only the user code, together with some _relocation information_ that are used at runtime to resolve the location of library functions on the host machine.
 
 {{< resizefig max-width=40em class=invertible src=img/dyn-linking.svg >}}
 <!-- {{< resizefig max-width=40em class=invertible src=img/dyn-linking-2.svg >}} -->
 
 
-### The Dynamic Linker: Overview
+### The Dynamic Linker
 
 The Dynamic Linker is the piece of code in charge of linking stuff at runtime (duh).
 
@@ -39,7 +39,7 @@ Dynamically linked binaries have a bunch of information that is used to link the
 {{< resizefig max-width=40em class=invertible src=img/dyn-linking-sections.svg >}}
 <!-- {{< resizefig max-width=40em class=invertible src=img/elf-sections.png >}} -->
 
-### Dynamic Linking: Relocations
+### Lazy Loading
 
 The procedure of jumping to the library function and finding the appropriate address is described below:
 
@@ -49,4 +49,4 @@ The procedure of jumping to the library function and finding the appropriate add
 
 Some flags can be specified to avoid the "lazy" part of dynamic loading.
 
-{{< resizefig max-width=40em class=invertible src=img/relro.png >}}
+{{< resizefig max-width=25em class=invertible src=img/relro.png >}}

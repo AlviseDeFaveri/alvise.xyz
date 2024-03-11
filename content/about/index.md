@@ -12,22 +12,18 @@ I like **microarchitectural attacks**, embedded & **hardware security**, **progr
 
 ## Experience
 
-Some cool things about me:
+Some cool projects I did before my PhD:
 
-- 🚀 I **flew a rocket** with the [Skyward Experimental Rocketry](https://skywarder.eu) Team
+- 🚀 I wrote software for a **sounding rocket** with the [Skyward Experimental Rocketry](https://skywarder.eu) Team
 - 🐉 I worked on an (LLVM+QEMU)-based **decompiler**, called [rev.ng](https://rev.ng)
-- 🏎💨 I helped porting **Google's V8 engine** to [RISCV-32](https://chromium-review.googlesource.com/c/v8/v8/+/3807124)
-- 🚗 I like **car hacking**, in particular [CAN bus attacks](https://dl.acm.org/doi/abs/10.1145/3548606.3560618)
-- 🔦 I've done some cool **audiovisual shows** together with the [BCI collective](https://beyondcommonideas.org)
+- 🏎 I helped porting **Google's V8 engine** to [RISCV-32](https://chromium-review.googlesource.com/c/v8/v8/+/3807124)
+- 🔦 I realized some **audiovisual installations** together with the [BCI collective](https://beyondcommonideas.org) back in my hometown
 
-## Side Projects
+## Research
 
-Other stuff that I've been tinkering with:
-
-- 🤖 **Machine learning**, mainly Keras and Tensorflow
-- 🕸️ **Web development**, in particular AWS and backend development
-- 🦄 **Startups**, either by working in them or contributing in various ways
-
+- I'm working on finding microarchitectural bugs in CPU designs
+- 👻 I built a (software) scanner for [Spectre Gadgets]() (under embargo)
+- 🚗 I worked on **car hacking**, in particular [CAN bus attacks](https://dl.acm.org/doi/abs/10.1145/3548606.3560618)
 
 ## Call Me Maybe
 

@@ -1,22 +1,19 @@
 ---
 title: "[Writeup] Some (Web) Assembly Required"
 highlight: true
-summary: "I've been looking at some old picoCTF challenges lately, this is the solve for one of them. It's a gentle introduction to decompilation and reversing, but with a spinkle of Web Assembly on top."
+summary: "I've been looking at some old picoCTF challenges lately, this is my solution for one of them. It's a gentle introduction to decompilation and reversing, but with a spinkle of Web Assembly on top."
 ---
 
 I've been looking at some old [picoCTF](https://picoctf.org/) challenges lately, and I stumbled upon
-a series of [WebAssembly challenges](https://play.picoctf.org/practice/challenge/182?category=1&page=3)
-from picoCTF 2021.
+a series of [WebAssembly challenges](https://play.picoctf.org/practice/challenge/182?category=1&page=3).
 Since I don't know much about WASM, I decided to try them out.
 
 The first 3 challenges of the series can be completed pretty easily with manual reverse
 engineering.
-
 The fourth (and last) one requires a bit more effort, which
-convinced my lazy ass to look for some actual **tools** to do the job instead of
-just staring at the code until it told me what I wanted.
+convinced my lazy ass to take a look at the **state of WASM tooling**.
 
-Indeed, a part from one [incredibly brilliant solver](https://larry.science/post/picoctf-2021/#some-assembly-required-4)
+Indeed, a part from [one brilliant solver](https://larry.science/post/picoctf-2021/#some-assembly-required-4)
 that did not even reverse engineer the wasm code at all, most of the solutions
 I found on the internet did most of the work manually, so maybe
 this writeup can be useful to other noobs like me.
@@ -97,7 +94,7 @@ As you can imagine, reversing big chunks of code like this takes a while, but at
 
 # Challenge 4
 
-As I said, I solved the first three challenges by hand, but the fourth one was a bit too much.
+As I said, the first three challenges can be solved manually, but the fourth one was a bit too much.
 
 Downloading the `.wat` and checking for diffs from the previous versions reveals that the only change is in `check_flag()`, which is now ~800 lines long and contains a bunch of `goto` instructions. Reversing by hand seems like a waste of time.
 
@@ -136,13 +133,13 @@ in strcmp(global_0) {
 
 The file is 16k lines long, and there's no easy way to reveal the secret at a first glance.
 
-From a first glance, it seems like the input gets copied to the heap region in the WASM binary with `get_char()`, then it gets manipulated in-place with XORs by the `check_flag()` function, and finally the resulting string is compared with a constant string.
+From a superificial look at the code, it seems like the input gets copied to the heap region in the WASM binary with `get_char()`, then it gets manipulated in-place with XORs by the `check_flag()` function, and finally the resulting string is compared with a constant string.
 
 Our task is then simply to invert the operations of `check_flag()` and apply them to the constant string, which represents the obfuscated value of the flag.
 
 ## Lazy attempts
 
-Hoping for a quick solve, I tried copying the obfuscated flag to the region where the input would normally be copied to and execute the `check_flag()` function on that, to see if the xorring function was reversible out-of-the box. Unfortunately, this was not the case.
+Hoping for a quick solution, I tried copying the obfuscated flag to the region where the input would normally be copied to and execute the `check_flag()` function on that, to see if the xorring function was reversible out-of-the box. Unfortunately, this was not the case.
 
 Out of curiosity, I also tried to ask Google's chat AI (_Bard_) to translate the WASM code to C and refactor the C code to make it more concise, but the input was too big and, even for smaller pieces of code, the output did not seem completely correct.
 
@@ -150,9 +147,9 @@ So, disgruntled and underwhelmed by the state of LLMs, I went back to the search
 
 ## Ghidra FTW
 
-It would be way cooler if this was the story of how I wrote a WASM plugin for the [Ghidra decompiler](https://ghidra-sre.org/), but in the end I found an already existing [Ghidra plugin](https://github.com/nneonneo/ghidra-wasm-plugin) that is well maintained, updated and working. _Nice!_
+It would be way cooler if this was the story of how I wrote a WASM plugin for the [Ghidra decompiler](https://ghidra-sre.org/), but in the end I found an already existing [Ghidra plugin](https://github.com/nneonneo/ghidra-wasm-plugin) that is well maintained, updated and working.
 
-Installing the plugin is straightforward, and after that if we import the `.wasm` file in Ghidra it gets automatically recognized.
+Installing the plugin is straightforward, and if we import the `.wasm` file in Ghidra it gets automatically recognized.
 
 After running the default analyses, we look at the _exports_ in the symbol tree and find our target, `check_flag()`. Once we open it in the decompiled view, we can already see that the code is much more concise that the `wasm2c` output.
 
