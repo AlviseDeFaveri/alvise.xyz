@@ -1,14 +1,14 @@
 ---
 draft: false
 date: "2022-01-06T19:21:40.000Z"
-title: "About Me"
+title: "About"
 description: ""
 ---
 
 
-I am a (former) software engineer with an embedded system's background and (now) PhD student at the Vrije University of Amsterdam in the [system security group](https://www.vusec.net/people/alvise-dft/).
+Hi there! I'm **Alvise**, a (former) software engineer with an embedded systems background and (now) PhD student at the Vrije University of Amsterdam in the [VUSec group](https://www.vusec.net/people/alvise-dft/).
 
-My research interests include **microarchitectural attacks**, embedded & **hardware security**, **program analysis**, and anything at interface between hardware and software. I also like a bunch of other stuff, not necessarily related to computers.
+I like **microarchitectural attacks**, embedded & **hardware security**, **program analysis**, and anything at interface between hardware and software. I also like music, audiovisual arts, and sometimes humans too.
 
 ## Experience
 
