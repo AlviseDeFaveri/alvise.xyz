@@ -256,13 +256,12 @@ li {
 }
 
 ul > li::after {
-  content: "◦ ";
+  content: "~";
 }
 
 .active a {
   text-decoration: underline;
 }
-
 strong {
   font-weight: bold;
 }
@@ -508,9 +507,8 @@ a:hover {
 }
 
 .post-anchor-compact {
-  color: var(--primary-color);
-  font-weight: 500;
-  /* font-size: calc(var(--global-font-size)*1.1); */
+  /* color: var(--primary-color); */
+  /* font-weight: 500; */
   display: flex;
 }
 
@@ -520,12 +518,12 @@ a:hover {
 }
 
 .post-anchor-compact h3 {
-  /* font-size: calc(var(--global-font-size)*1.2); */
 
   padding: 0px;
   margin: 0px;
   color: var(--primary-color);
   text-decoration: none;
+  font-size: 20px;
 }
 
 .post-anchor-compact .date {
