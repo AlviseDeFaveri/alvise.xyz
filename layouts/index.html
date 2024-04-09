@@ -15,6 +15,25 @@ I like <b>embedded</b> systems, <b>hardware security</b>,
 
 <div class="header-spacer"></div>
 
+<h1>Publications</h1>
+
+{{with .Site.GetPage "/publications"}}
+<ul class="publication-ul">
+  {{ range sort .Data.Pages "Date" "desc" }} {{ if not .Params.private }}
+  <li>
+      <a href="{{ .Params.link }}" title="{{ .Title }}{{ .Params.subtitles }}">
+        <div class="publication-box">
+          <div class="publication-title"><b>{{ .Title }}</b> {{ .Params.subtitle }}</div>
+          <div class="publication-venue">{{ .Params.venue }}</div>
+          <!-- <div class="publication-authors">{{ .Params.authors }}</div> -->
+        </div>
+      </a>
+  </li>
+  {{ end }} {{ end }}
+</ul>
+  {{ end }}
+
+
 <h1>Posts</h1>
 
 {{with .Site.GetPage "/posts"}}
@@ -22,16 +41,11 @@ I like <b>embedded</b> systems, <b>hardware security</b>,
   {{ range sort .Data.Pages "Date" "desc" }} {{ if not .Params.private }}
   <li>
     <div class="post-compact">
-      <a class="post-anchor-compact post-anchor-title" href="{{ .Permalink }}" title="{{ .Title }}">
-        <h3>{{ .Title }}</h3>
-        <!-- <div class="summary">{{ .Summary }}</div> -->
-        <!-- This <div> includes a read more link, but only if the summary is truncated... -->
-          <!-- <div>
-            <a href="{{ .Permalink }}">Read More…</a>
-          </div> -->
+        <a class="post-anchor-compact post-anchor-title" href="{{ .Permalink }}" title="{{ .Title }}">
+        {{ .Title }}
         </a>
-        <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
-      </div>
+        <div class="date">{{ .PublishDate.Format "Jan 2006" }}</div>
+    </div>
 </li>
   {{ end }} {{ end }}
 </ul>
@@ -47,15 +61,10 @@ I like <b>embedded</b> systems, <b>hardware security</b>,
   <li>
     <div class="post-compact">
       <a class="post-anchor-compact post-anchor-title" href="{{ .Permalink }}" title="{{ .Title }}">
-        <h3>{{ .Title }}</h3>
-        <!-- <div class="summary">{{ .Summary }}</div> -->
-        <!-- This <div> includes a read more link, but only if the summary is truncated... -->
-          <!-- <div>
-            <a href="{{ .Permalink }}">Read More…</a>
-          </div> -->
-        </a>
-        <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
-      </div>
+      {{ .Title }}
+      </a>
+      <div class="date">{{ .PublishDate.Format "Jan 2006" }}</div>
+    </div>
 </li>
   {{ end }} {{ end }}
 </ul>

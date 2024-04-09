@@ -1,5 +1,5 @@
 ---
-title: "[Writeup] Some (Web) Assembly Required"
+title: "Some (Web) Assembly Required: An Introduction to WASM Reversing"
 highlight: true
 summary: "I've been looking at some old picoCTF challenges lately, this is my solution for one of them. It's a gentle introduction to decompilation and reversing, but with a spinkle of Web Assembly on top."
 ---

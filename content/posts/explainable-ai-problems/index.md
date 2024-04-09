@@ -1,30 +1,45 @@
 ---
 Title: "Explainable AI: What the Hell is Even That?"
-date: 2023-08-10
-draft: true
+date: 2022-08-10
+draft: false
+private: false
 RepoCard: true
 math: false
 highlight: false
 image: img/ml.jpg
-summary: During my last year of university I wrote a short paper on AI explanation as part of the final examination for the Phylosophical Issues in Computer Science course. Although this is definitely not my main field of expertise, I found that reading and reflecting on the problem of giving people a right for an explanation and trying to understand and eliminate the bias that we...
 ---
 
 {{< resizefig max-width=600px src=img/ml.jpg.webp caption="Machine Learning Memes for Convolutional Teens">}}
 
-A couple of years ago in university I wrote a short article on AI explanation for a course called "Phylosophical Issues in Computer Science". I didn't know anything about the topic at the time (and neither I do now to be honest) but it already seemed quite clear that the problem of explanation would become a huge one once AI research was mature enough.
+Some time ago I wrote a (non-technical) [short
+essay](https://raw.githubusercontent.com/AlviseDeFaveri/XAI-paper/master/main.pdf)
+on AI explanation for a uni course. I didn't know anything about the topic at
+the time (and things haven't changed much since then) but it already seemed quite clear
+that the problem of explanation would become a huge one as AI research advanced.
 
-The main focus of the article was to research the state of the art in a "new" field called **XAI (eXplainable AI)**, which specifically deals with the problem of understanding what an AI does and why.
+<!-- The main focus of the article was to research the state of the art in a "new" field called **XAI (eXplainable AI)**, which specifically deals with the problem of understanding why an AI took a certain decision. -->
 
-There were already many ideas on how to do it, from using simpler algorithms like decision trees to approximate a neural network to produce AIs that can learn how to explain themselves. The research has evolved enormously in the meantime, but some of the core problems are still there in my opinion.
+There were already many ideas on how to do it, from using simpler algorithms
+like decision trees to approximate a neural network to producing AIs that can
+learn how to explain themselves.
 
-If you’re interested, you can take a look at my old article [here](https://raw.githubusercontent.com/AlviseDeFaveri/XAI-paper/master/main.pdf) to understand what I mean.
+However, some of the limitations were also already clear.
+For example: how do you measure the quality of an explanation? Is it about how
+_faithful_ they are (but then, the most faithful explanation is the code itself)
+or how _convincing_ they are? If this is the case, isn't that a clear
+ _incentive to lie_? This is basically what my essay is about.
 
-{{< github "AlviseDeFaveri/XAI-paper" >}}
+Clearly, the reasoning is very abstract and only scratches the surface, but I think the
+core of the question is still interesting and worthy to investigate.
 
+---
 
-Fast-forward in time: it's now 2023, ChatGPT and LLMs are huge on Twitter (maybe less so in the real world) and obviously the research on explainable AI is now hotter than ever. Also, Twitter is now X, but that's another story.
+Fast-forward in time: it's now 2023, ChatGPT and LLMs are huge on Twitter (maybe
+less so in the real world) and obviously the research on explainable AI is now
+hotter than ever. Also, Twitter is now X, but that's another story.
 
-These are some interesting articles that have been written in the meantime:
+Here's a (very random and outdated) collection of interesting articles about the
+topic:
 
 - [This article](https://medium.com/dsaid-govtech/towards-a-comparable-metric-for-ai-model-interpretability-part-1-d55d4bae8a58) from 2022, written by researchers from Meta and from the Singaporean government (for some reason), talks exactly about the absence of a common metric for measuring interpretability in AI models.
 They also claim a completely negative correlation between an AI model's accuracy and it's out-of-the-box explainability. Sounds like we're going to have a lot of fun with opaque, broken AI for the forseeable future!

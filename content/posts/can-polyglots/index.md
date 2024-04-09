@@ -1,7 +1,7 @@
 ---
-Title: "CAN Polyglots: A Fancy Way of Attacking Car Networks"
+Title: "CANflict: Hacking The CAN Bus, Without the CAN Bus"
 date: 2022-11-25
-draft: true
+draft: false
 RepoCard: true
 math: false
 highlight: false
@@ -17,11 +17,11 @@ Some months ago, I wrote a [Twitter thread](https://twitter.com/HBitmasks/status
 {{< twitter 1446813123667759106 >}}
 
 
-Fast-forward almost a year: this work was accepted at ACM CCS, a top-notch academic conference for system security. And we got a best paper honorable mention too - what a blast! The full paper is [here](https://dl.acm.org/doi/abs/10.1145/3548606.3560618) if you’re interested.
+Fast-forward almost a year: this work was accepted at ACM CCS. And we got a best paper honorable mention too - what a blast! The full paper is [here](https://dl.acm.org/doi/abs/10.1145/3548606.3560618) if you’re interested.
 
 {{< github "necst/CANflict" >}}
 
-The blogpost is still WIP, but you can read some of the details inside the [Twitter thread](https://twitter.com/HBitmasks/status/1446813123667759106).
+The blogpost is still WIP, but you can read some of the details in the [Twitter thread](https://twitter.com/HBitmasks/status/1446813123667759106).
 
 <!-- ## What's CAN, anyways
 

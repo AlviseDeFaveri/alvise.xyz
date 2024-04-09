@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <meta name="googlebot" content="index,follow,snippet,archive">
-    <link rel="stylesheet" href="/main.min.6703cccad1ab38a45b183463940ffeed13f4adb6334e5afddec454a5f31b57ba.css" media="all">
+    <link rel="stylesheet" href="/main.min.5047b4e57e44e942a748ba9c0dee5b480749624017c5bcfb7d0ce89251eed0cc.css" media="all">
 
     
     <script type="text/javascript">
@@ -62,7 +62,7 @@
 <h1>Dynamic Linking Infographic</h1>
 <p>What happens when your code calls <code>printf()</code>? And what&rsquo;s up with all that <code>.got.plt</code> crap that you see when you decompile a binary? Here are some sketches I drew to help me remember this kind of stuff.</p>
 <p><a href="img/dynamic-linking.png">Full Infographic</a>.</p>
-<!-- raw HTML omitted -->
+<p>These sketches are mainly inspired by <a href="https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-di-frederico.pdf">How the ELF ruined the Christmas</a>.</p>
 <h3 id="intro-dynamic-linking">Intro: Dynamic Linking</h3>
 <p>First of all, we need to understand the difference between a <strong>statically linked</strong> binary and a dynamically linked one:</p>
 <ul>
@@ -72,20 +72,13 @@
 <!-- raw HTML omitted -->
 <figure class="invertible"
 style="max-width:40em;
-"><img src="img/dyn-linking-2.svg"style=";;;
+"><img src="img/dyn-linking.svg"style=";;;
          "
     />
 </figure>
 
-<h3 id="the-dynamic-linker">The Dynamic Linker</h3>
-<p>The Dynamic Linker is the piece of code in charge of linking stuff at runtime (duh).</p>
-<figure class="invertible"
-style="max-width:40em;
-"><img src="img/dynamic-linker.png"style=";;;
-         "
-    />
-</figure>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h3 id="linker-related-elf-sections">Linker-Related ELF sections</h3>
 <p>Dynamically linked binaries have a bunch of information that is used to link them together:</p>
 <ul>

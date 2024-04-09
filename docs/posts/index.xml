@@ -6,17 +6,31 @@
     <description>Recent content in Posts on alvise.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Nov 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.alvise.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Writing Software For a Sounding Rocket</title>
+      <title>CANflict: Hacking The CAN Bus, Without the CAN Bus</title>
+      <link>https://www.alvise.xyz/posts/can-polyglots/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.alvise.xyz/posts/can-polyglots/</guid>
+      <description>Some months ago, I wrote a Twitter thread about a bunch of CAN bus hacking shenanigans I was doing for my master thesis (which got retweeted by the awesome @angealbertini - senpai noticed me! 🥺).&#xA;You know what @angealbertini does with file formats, right? Well, we did the same thing with communications protocols - because, why not?</description>
+    </item>
+    <item>
+      <title>Explainable AI: What the Hell is Even That?</title>
+      <link>https://www.alvise.xyz/posts/explainable-ai-problems/</link>
+      <pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.alvise.xyz/posts/explainable-ai-problems/</guid>
+      <description>Machine Learning Memes for Convolutional Teens&#xA;Some time ago I wrote a (non-technical) short essay on AI explanation for a uni course. I didn&amp;rsquo;t know anything about the topic at the time (and things haven&amp;rsquo;t changed much since then) but it already seemed quite clear that the problem of explanation would become a huge one as AI research advanced.</description>
+    </item>
+    <item>
+      <title>Writing Software For a Sounding Rocket: My Experience in a Student Rocketry Team</title>
       <link>https://www.alvise.xyz/posts/writing-software-for-a-sounding-rocket/</link>
       <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
       <guid>https://www.alvise.xyz/posts/writing-software-for-a-sounding-rocket/</guid>
       <description>This year is going to be 5 years since I first joined Skyward Experimental Rocketry, and - oh boy, it has been a hell of a ride! We&amp;rsquo;ve just open-sourced the on-board software of our latest rocket, so I figured it would be cool to write a high-level introduction to the magical world of sounding rockets, from a software perspective.</description>
     </item>
     <item>
-      <title>[Writeup] Some (Web) Assembly Required</title>
+      <title>Some (Web) Assembly Required: An Introduction to WASM Reversing</title>
       <link>https://www.alvise.xyz/posts/picoctf-some-assembly-required/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.alvise.xyz/posts/picoctf-some-assembly-required/</guid>

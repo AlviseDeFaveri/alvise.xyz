@@ -1,5 +1,5 @@
 ---
-Title: "Writing Software For a Sounding Rocket"
+Title: "Writing Software For a Sounding Rocket: My Experience in a Student Rocketry Team"
 date: "2022-01-21T00:00:00"
 RepoCard: true
 math: false
